@@ -93,17 +93,14 @@
           nvim-treesitter.withAllGrammars
         ];
 
+        file-manager = with pkgs.vimPlugins; [
+          oil-nvim
+        ];
       };
 
       # not loaded automatically at startup.
       # use with packadd and an autocommand in config to achieve lazy loading
       optionalPlugins = {
-        gitPlugins = with pkgs.neovimPlugins; [ ];
-        general = with pkgs.vimPlugins; [ ];
-
-        file-manager = with pkgs.vimPlugins; [
-          oil-nvim
-        ];
       };
 
       # shared libraries to be added to LD_LIBRARY_PATH

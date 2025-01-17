@@ -2,6 +2,8 @@ require('nixCatsUtils').setup {
   non_nix_value = true,
 }
 
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- NOTE: nixCats: You might want to move the lazy-lock.json file
 local function getlockfilepath()
@@ -41,6 +43,7 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible({"allPlugins", "start", "
   require("core.lsp"),
   require("core.treesitter"),
   require("core.file_manager"),
+  require("core.fuzzy_finder"),
 
   { import = 'custom.plugins' },
 }, lazyOptions)

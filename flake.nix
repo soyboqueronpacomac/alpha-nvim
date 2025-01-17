@@ -85,7 +85,6 @@
 
       # This is for plugins that will load at startup without using packadd:
       startupPlugins = {
-        # gitPlugins = with pkgs.neovimPlugins; [ ];
         general = with pkgs.vimPlugins; [
           vim-sleuth
           nvim-lspconfig
@@ -93,6 +92,7 @@
           lazydev-nvim
           nvim-treesitter.withAllGrammars
         ];
+
       };
 
       # not loaded automatically at startup.
@@ -100,6 +100,10 @@
       optionalPlugins = {
         gitPlugins = with pkgs.neovimPlugins; [ ];
         general = with pkgs.vimPlugins; [ ];
+
+        file-manager = with pkgs.vimPlugins; [
+          oil-nvim
+        ];
       };
 
       # shared libraries to be added to LD_LIBRARY_PATH
@@ -170,6 +174,7 @@
         categories = {
           general = true;
           gitPlugins = true;
+          file-manager = true;
           customPlugins = true;
           test = true;
           example = {

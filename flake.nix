@@ -91,6 +91,7 @@
           nvim-lspconfig
           fidget-nvim
           lazydev-nvim
+          nvim-treesitter.withAllGrammars
         ];
       };
 

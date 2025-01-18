@@ -81,6 +81,7 @@
         general = with pkgs; [
           lua-language-server
           fzf
+          nixd
         ];
       };
 

@@ -82,13 +82,14 @@
           lua-language-server
           fzf
           nixd
+          go
+          gopls
         ];
       };
 
       # This is for plugins that will load at startup without using packadd:
       startupPlugins = {
         general = with pkgs.vimPlugins; [
-          vim-sleuth
           nvim-lspconfig
           fidget-nvim
           lazydev-nvim

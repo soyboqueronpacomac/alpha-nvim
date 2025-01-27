@@ -1,5 +1,5 @@
 require('nixCatsUtils').setup {
-  non_nix_value = true,
+    non_nix_value = true,
 }
 
 vim.g.mapleader = ' '
@@ -32,26 +32,33 @@ vim.o.showmode = false;
 vim.o.clipboard = "unnamedplus";
 
 
+-- diagnostic symbols
+local signs = { Error = "❌", Warn = "🤕", Hint = "💡", Info = "😏" }
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+end
+
 -- NOTE: nixCats: You might want to move the lazy-lock.json file
 local function getlockfilepath()
-  if require('nixCatsUtils').isNixCats and type(require('nixCats').settings.unwrappedCfgPath) == "string" then
-    return require('nixCats').settings.unwrappedCfgPath .. "/lazy-lock.json"
-  else
-    return vim.fn.stdpath("config") .. "/lazy-lock.json"
-  end
+    if require('nixCatsUtils').isNixCats and type(require('nixCats').settings.unwrappedCfgPath) == "string" then
+        return require('nixCats').settings.unwrappedCfgPath .. "/lazy-lock.json"
+    else
+        return vim.fn.stdpath("config") .. "/lazy-lock.json"
+    end
 end
 
 local lazyOptions = {
-  lockfile = getlockfilepath(),
+    lockfile = getlockfilepath(),
 }
 
-require('nixCatsUtils.lazyCat').setup(nixCats.pawsible({"allPlugins", "start", "lazy.nvim" }),
-{
-  require("core.lsp"),
-  require("core.treesitter"),
-  require("core.file_manager"),
-  require("core.fuzzy_finder"),
-  require("core.completion"),
+require('nixCatsUtils.lazyCat').setup(nixCats.pawsible({ "allPlugins", "start", "lazy.nvim" }),
+    {
+        require("core.lsp"),
+        require("core.treesitter"),
+        require("core.file_manager"),
+        require("core.fuzzy_finder"),
+        require("core.completion"),
 
-  { import = 'custom.plugins' },
-}, lazyOptions)
+        { import = 'custom.plugins' },
+    }, lazyOptions)

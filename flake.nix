@@ -102,6 +102,7 @@
           nvim-treesitter.withAllGrammars
           blink-cmp
           snacks-nvim
+          lualine-nvim
         ];
 
         file-manager = with pkgs.vimPlugins; [

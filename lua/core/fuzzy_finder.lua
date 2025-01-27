@@ -11,5 +11,6 @@ return {
     vim.keymap.set({"n"}, "<leader>pe", require('fzf-lua').buffers)
     vim.keymap.set({"n"}, "<leader>pe", require('fzf-lua').live_grep)
     vim.keymap.set({"n"}, "<leader>ph", require('fzf-lua').helptags)
+    vim.keymap.set({"n"}, "<leader>ps", require('fzf-lua').live_grep)
   end,
 }

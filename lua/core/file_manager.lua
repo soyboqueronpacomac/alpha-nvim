@@ -4,6 +4,9 @@ return {
   ---@type oil.SetupOpts
   opts = {},
   enabled = require('nixCatsUtils').enableForCategory("file-manager"),
+  keys = {
+    {"-", "<cmd>Oil<cr>"}
+  },
   cmd = { "Oil" },
   -- Optional dependencies
   dependencies = { { "echasnovski/mini.icons", opts = {} } },

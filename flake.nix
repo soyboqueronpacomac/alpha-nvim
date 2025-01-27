@@ -9,6 +9,11 @@
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };
 
+    # blink = {
+    #   url = "github:Saghen/blink.cmp";
+    #   flake = false;
+    # };
+
     # see :help nixCats.flake.inputs
     # If you want your plugin to be loaded by the standard overlay,
     # i.e. if it wasnt on nixpkgs, but doesnt have an extra build step.
@@ -84,6 +89,7 @@
           nixd
           go
           gopls
+          gitea
         ];
       };
 
@@ -94,6 +100,8 @@
           fidget-nvim
           lazydev-nvim
           nvim-treesitter.withAllGrammars
+          blink-cmp
+          snacks-nvim
         ];
 
         file-manager = with pkgs.vimPlugins; [

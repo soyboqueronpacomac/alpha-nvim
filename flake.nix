@@ -14,6 +14,16 @@
     #   flake = false;
     # };
 
+    blade-treesitter = {
+      url = "github:EmranMR/tree-sitter-blade";
+      flake = false;
+    };
+
+    "plugins-laravel.nvim" = {
+      url = "github:adalessa/laravel.nvim";
+      flake = false;
+    };
+
     # see :help nixCats.flake.inputs
     # If you want your plugin to be loaded by the standard overlay,
     # i.e. if it wasnt on nixpkgs, but doesnt have an extra build step.
@@ -58,7 +68,7 @@
       # `plugins-<pluginName>`
       # Once we add this overlay to our nixpkgs, we are able to
       # use `pkgs.neovimPlugins`, which is a set of our plugins.
-      (utils.standardPluginOverlay inputs)
+      (utils.sanitizedPluginOverlay inputs)
       # add any other flake overlays here.
 
       # when other people mess up their overlays by wrapping them with system,
@@ -68,6 +78,8 @@
       #   (system: inputs.codeium.overlays.${system}.default)
       # )
     ];
+
+
 
     # see :help nixCats.flake.outputs.categories
     # and
@@ -90,6 +102,7 @@
           go
           gopls
           gitea
+          phpactor
         ];
       };
 
@@ -100,9 +113,15 @@
           fidget-nvim
           lazydev-nvim
           nvim-treesitter.withAllGrammars
+          # pkgs.tree-sitter.buildGrammar {
+          #     language = "blade";
+          #     version = "0.9.2";
+          #     src = inputs.blade-treesitter;
+          # }
           blink-cmp
           snacks-nvim
           lualine-nvim
+          vim-surround
         ];
 
         file-manager = with pkgs.vimPlugins; [
@@ -112,6 +131,14 @@
 
         fuzzy-finder = with pkgs.vimPlugins; [
           fzf-lua
+        ];
+
+        laravel = [
+          pkgs.neovimPlugins.laravel-nvim
+          pkgs.vimPlugins.plenary-nvim
+          pkgs.vimPlugins.nui-nvim
+          pkgs.vimPlugins.vim-dotenv
+          pkgs.vimPlugins.promise-async
         ];
       };
 
@@ -191,6 +218,7 @@
           file-manager = true;
           fuzzy-finder = true;
           customPlugins = true;
+          laravel = true;
           test = true;
           example = {
             youCan = "add more than just booleans";

@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "blade-treesitter": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1733746012,
+        "narHash": "sha256-N3QUylMqhX5aZGyIx1zfMe4xZRAwwE7e4MyhOiawCXw=",
+        "owner": "EmranMR",
+        "repo": "tree-sitter-blade",
+        "rev": "47baa7ba1f9d5f436c7a72b052d2dac2166abf92",
+        "type": "github"
+      },
+      "original": {
+        "owner": "EmranMR",
+        "repo": "tree-sitter-blade",
+        "type": "github"
+      }
+    },
     "nixCats": {
       "locked": {
         "lastModified": 1737980881,
@@ -31,10 +47,28 @@
         "type": "github"
       }
     },
+    "plugins-laravel.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1738184261,
+        "narHash": "sha256-xl/cIqBkGO0ecNfm6myHHMe5+YQSxrcgHOIc9g+JeFM=",
+        "owner": "adalessa",
+        "repo": "laravel.nvim",
+        "rev": "8bcf9e5dad38d31ca6938fc97d6ed5d8e9e33e4f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "adalessa",
+        "repo": "laravel.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
+        "blade-treesitter": "blade-treesitter",
         "nixCats": "nixCats",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "plugins-laravel.nvim": "plugins-laravel.nvim"
       }
     }
   },

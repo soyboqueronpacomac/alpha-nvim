@@ -95,6 +95,9 @@
       # at RUN TIME for plugins. Will be available to PATH within neovim terminal
       # this includes LSPs
       lspsAndRuntimeDeps = {
+        laravel = with pkgs; [
+          phpactor
+        ];
         general = with pkgs; [
           lua-language-server
           fzf
@@ -102,7 +105,6 @@
           go
           gopls
           gitea
-          phpactor
         ];
       };
 
@@ -113,11 +115,6 @@
           fidget-nvim
           lazydev-nvim
           nvim-treesitter.withAllGrammars
-          # pkgs.tree-sitter.buildGrammar {
-          #     language = "blade";
-          #     version = "0.9.2";
-          #     src = inputs.blade-treesitter;
-          # }
           blink-cmp
           snacks-nvim
           lualine-nvim
@@ -139,6 +136,14 @@
           pkgs.vimPlugins.nui-nvim
           pkgs.vimPlugins.vim-dotenv
           pkgs.vimPlugins.promise-async
+
+          (pkgs.vimPlugins.nvim-treesitter.grammarToPlugin (
+            pkgs.tree-sitter.buildGrammar {
+                language = "blade";
+                version = "0.11.0";
+                src = inputs.blade-treesitter;
+            }
+          ))
         ];
       };
 

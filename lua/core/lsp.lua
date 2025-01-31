@@ -99,6 +99,7 @@ return { -- LSP Configuration & Plugins
         --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
         -- NOTE: nixCats: there is help in nixCats for lsps at `:h nixCats.LSPs` and also `:h nixCats.luaUtils`
         local servers = {}
+        local handlers = {}
         -- servers.clangd = {},
         servers.gopls = {}
         -- servers.pyright = {},
@@ -137,18 +138,18 @@ return { -- LSP Configuration & Plugins
             },
         }
 
-        servers.phpactor = {
-            filetypes = { "php", "blade" },
-            init_options = {
-                ["language_server_worse_reflection.inlay_hints.enable"] = true,
-                ["language_server_worse_reflection.inlay_hints.types"] = false,
-                ["language_server_worse_reflection.inlay_hints.params"] = true,
-                ["code_transform.import_globals"] = true,
-            },
-        }
+        if require('nixCatsUtils').enableForCategory("laravel") then
+            servers.phpactor = {
+                filetypes = { "php", "blade" },
+                init_options = {
+                    ["language_server_worse_reflection.inlay_hints.enable"] = true,
+                    ["language_server_worse_reflection.inlay_hints.types"] = false,
+                    ["language_server_worse_reflection.inlay_hints.params"] = true,
+                    ["code_transform.import_globals"] = true,
+                },
+            }
 
-        local handlers = {
-            phpactor = {
+            handlers.phpactor = {
                 ["textDocument/inlayHint"] = function(err, result, ...)
                     for _, res in ipairs(result) do
                         res.label = res.label .. ": "
@@ -156,7 +157,8 @@ return { -- LSP Configuration & Plugins
                     vim.lsp.handlers["textDocument/inlayHint"](err, result, ...)
                 end,
             }
-        }
+        end
+
 
         -- NOTE: nixCats: if nix, use lspconfig instead of mason
         -- You could MAKE it work, using lspsAndRuntimeDeps and sharedLibraries in nixCats

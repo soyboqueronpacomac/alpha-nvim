@@ -32,6 +32,7 @@ vim.o.showmode = false
 vim.o.clipboard = "unnamedplus"
 vim.o.conceallevel = 1
 
+require('core.replace_action')
 
 -- diagnostic symbols
 local signs = { Error = "❌", Warn = "🤕", Hint = "💡", Info = "😏" }

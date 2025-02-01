@@ -117,11 +117,15 @@
           fidget-nvim
           lazydev-nvim
           nvim-treesitter.withAllGrammars
+          nvim-treesitter-textobjects
           (inputs.blink.packages.${pkgs.system}.blink-cmp.overrideAttrs {pname = "blink.cmp";})
+          blink-compat
+          mini-icons
           friendly-snippets
           snacks-nvim
           lualine-nvim
           vim-surround
+          luasnip
         ];
 
         file-manager = with pkgs.vimPlugins; [
@@ -131,6 +135,7 @@
 
         fuzzy-finder = with pkgs.vimPlugins; [
           fzf-lua
+          mini-icons
         ];
 
         laravel = with pkgs.vimPlugins; [

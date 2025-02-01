@@ -9,10 +9,12 @@
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };
 
-    # blink = {
-    #   url = "github:Saghen/blink.cmp";
-    #   flake = false;
-    # };
+    blink = {
+        url = "github:Saghen/blink.cmp";
+        inputs = {
+            nixpkgs.follows = "nixpkgs";
+        };
+    };
 
     blade-treesitter = {
       url = "github:EmranMR/tree-sitter-blade";
@@ -47,7 +49,7 @@
     # will not apply to module imports
     # as that will have your system values
     extra_pkg_config = {
-      # allowUnfree = true;
+            allowUnfree = true;
     };
     # management of the system variable is one of the harder parts of using flakes.
 
@@ -96,7 +98,7 @@
       # this includes LSPs
       lspsAndRuntimeDeps = {
         laravel = with pkgs; [
-          phpactor
+          intelephense
         ];
         general = with pkgs; [
           lua-language-server
@@ -115,7 +117,8 @@
           fidget-nvim
           lazydev-nvim
           nvim-treesitter.withAllGrammars
-          blink-cmp
+          (inputs.blink.packages.${pkgs.system}.blink-cmp.overrideAttrs {pname = "blink.cmp";})
+          friendly-snippets
           snacks-nvim
           lualine-nvim
           vim-surround

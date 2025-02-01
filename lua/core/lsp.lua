@@ -99,7 +99,6 @@ return { -- LSP Configuration & Plugins
         --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
         -- NOTE: nixCats: there is help in nixCats for lsps at `:h nixCats.LSPs` and also `:h nixCats.luaUtils`
         local servers = {}
-        local handlers = {}
         -- servers.clangd = {},
         servers.gopls = {}
         -- servers.pyright = {},
@@ -139,24 +138,7 @@ return { -- LSP Configuration & Plugins
         }
 
         if require('nixCatsUtils').enableForCategory("laravel") then
-            servers.phpactor = {
-                filetypes = { "php", "blade" },
-                init_options = {
-                    ["language_server_worse_reflection.inlay_hints.enable"] = true,
-                    ["language_server_worse_reflection.inlay_hints.types"] = false,
-                    ["language_server_worse_reflection.inlay_hints.params"] = true,
-                    ["code_transform.import_globals"] = true,
-                },
-            }
-
-            handlers.phpactor = {
-                ["textDocument/inlayHint"] = function(err, result, ...)
-                    for _, res in ipairs(result) do
-                        res.label = res.label .. ": "
-                    end
-                    vim.lsp.handlers["textDocument/inlayHint"](err, result, ...)
-                end,
-            }
+            servers.intelephense = {}
         end
 
 
@@ -168,8 +150,6 @@ return { -- LSP Configuration & Plugins
                 require("lspconfig")[server_name].setup({
                     capabilities = capabilities,
                     settings = servers[server_name],
-                    init_options = (servers[server_name] or {}).init_options,
-                    handlers = handlers[server_name] or {},
                     filetypes = (servers[server_name] or {}).filetypes,
                     cmd = (servers[server_name] or {}).cmd,
                     root_pattern = (servers[server_name] or {}).root_pattern,
@@ -198,7 +178,6 @@ return { -- LSP Configuration & Plugins
                 handlers = {
                     function(server_name)
                         local server = servers[server_name] or {}
-                        server.handlers = handlers[server_name] or {}
                         -- This handles overriding only values explicitly passed
                         -- by the server configuration above. Useful when disabling
                         -- certain features of an LSP (for example, turning off formatting for tsserver)

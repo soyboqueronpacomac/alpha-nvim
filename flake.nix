@@ -155,6 +155,8 @@
           plenary-nvim
           copilot-lua
           blink-cmp-copilot
+          avante-nvim
+          nui-nvim
         ];
 
         laravel = with pkgs.vimPlugins; [

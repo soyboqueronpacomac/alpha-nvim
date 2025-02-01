@@ -13,9 +13,14 @@ return {
         -- optional: provides snippets for the snippet source
         dependencies = {
             'rafamadriz/friendly-snippets',
-            {"L3MON4D3/LuaSnip", version = 'v2.*', name = "luasnip", config = function ()
-                require("luasnip.loaders.from_vscode").lazy_load()
-            end},
+            {
+                "L3MON4D3/LuaSnip",
+                version = 'v2.*',
+                name = "luasnip",
+                config = function()
+                    require("luasnip.loaders.from_vscode").lazy_load()
+                end
+            },
             { "echasnovski/mini.icons", opts = {} },
         },
 
@@ -71,7 +76,11 @@ return {
                     end
 
                     if vim.bo.filetype == 'codecompanion' then
-                        return {'codecompanion'}
+                        return { 'codecompanion' }
+                    end
+
+                    if require('nixCatsUtils').enableForCategory("ai") then
+                        table.insert(sources, "copilot")
                     end
 
                     return sources
@@ -80,6 +89,12 @@ return {
                     laravel = {
                         name = "laravel",
                         module = "blink.compat.source",
+                    },
+                    copilot = {
+                        name = "copilot",
+                        module = "blink-cmp-copilot",
+                        score_offset = 100,
+                        async = true,
                     },
                 },
             },

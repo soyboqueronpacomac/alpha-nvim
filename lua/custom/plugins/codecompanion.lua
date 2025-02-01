@@ -11,10 +11,10 @@ return {
     opts = {
         strategies = {
             chat = {
-                adapter = "phi4",
+                adapter = "copilot",
             },
             inline = {
-                adapter = "phi4",
+                adapter = "copilot",
             },
         },
         adapters = {

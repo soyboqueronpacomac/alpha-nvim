@@ -153,6 +153,8 @@
         ai = with pkgs.vimPlugins; [
           pkgs.neovimPlugins.codecompanion-nvim
           plenary-nvim
+          copilot-lua
+          blink-cmp-copilot
         ];
 
         laravel = with pkgs.vimPlugins; [

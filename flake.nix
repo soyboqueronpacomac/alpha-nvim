@@ -130,20 +130,25 @@
           fzf-lua
         ];
 
-        laravel = [
+        laravel = with pkgs.vimPlugins; [
           pkgs.neovimPlugins.laravel-nvim
-          pkgs.vimPlugins.plenary-nvim
-          pkgs.vimPlugins.nui-nvim
-          pkgs.vimPlugins.vim-dotenv
-          pkgs.vimPlugins.promise-async
+          plenary-nvim
+          nui-nvim
+          vim-dotenv
+          promise-async
 
-          (pkgs.vimPlugins.nvim-treesitter.grammarToPlugin (
+          (nvim-treesitter.grammarToPlugin (
             pkgs.tree-sitter.buildGrammar {
                 language = "blade";
                 version = "0.11.0";
                 src = inputs.blade-treesitter;
             }
           ))
+        ];
+
+        obsidian = with pkgs.vimPlugins; [
+            obsidian-nvim
+            plenary-nvim
         ];
       };
 
@@ -224,6 +229,7 @@
           fuzzy-finder = true;
           customPlugins = true;
           laravel = true;
+          obsidian = true;
           test = true;
           example = {
             youCan = "add more than just booleans";

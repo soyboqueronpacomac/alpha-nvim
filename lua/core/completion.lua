@@ -70,13 +70,17 @@ return {
                         table.insert(sources, 'laravel')
                     end
 
+                    if vim.bo.filetype == 'codecompanion' then
+                        return {'codecompanion'}
+                    end
+
                     return sources
                 end,
                 providers = {
                     laravel = {
                         name = "laravel",
                         module = "blink.compat.source",
-                    }
+                    },
                 },
             },
         },

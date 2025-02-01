@@ -121,6 +121,22 @@
         "url": "https://github.com/NixOS/nixpkgs/archive/5487e69da40cbd611ab2cadee0b4637225f7cfae.tar.gz"
       }
     },
+    "plugins-codecompanion.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1738400704,
+        "narHash": "sha256-xD8Ak6bQgWVy+7vzJ8CERghIF1LpCUOR9wFiggFLgb0=",
+        "owner": "olimorris",
+        "repo": "codecompanion.nvim",
+        "rev": "d75641e9805f86d946531fb250f0762dc77b51eb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "olimorris",
+        "repo": "codecompanion.nvim",
+        "type": "github"
+      }
+    },
     "plugins-laravel.nvim": {
       "flake": false,
       "locked": {
@@ -159,6 +175,7 @@
         "blink": "blink",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
+        "plugins-codecompanion.nvim": "plugins-codecompanion.nvim",
         "plugins-laravel.nvim": "plugins-laravel.nvim",
         "plugins-vague.nvim": "plugins-vague.nvim"
       }

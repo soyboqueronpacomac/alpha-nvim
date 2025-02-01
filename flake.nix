@@ -31,6 +31,11 @@
       flake = false;
     };
 
+    "plugins-codecompanion.nvim" = {
+      url = "github:olimorris/codecompanion.nvim";
+      flake = false;
+    };
+
     # see :help nixCats.flake.inputs
     # If you want your plugin to be loaded by the standard overlay,
     # i.e. if it wasnt on nixpkgs, but doesnt have an extra build step.
@@ -145,6 +150,11 @@
           mini-icons
         ];
 
+        ai = with pkgs.vimPlugins; [
+          pkgs.neovimPlugins.codecompanion-nvim
+          plenary-nvim
+        ];
+
         laravel = with pkgs.vimPlugins; [
           pkgs.neovimPlugins.laravel-nvim
           plenary-nvim
@@ -246,6 +256,8 @@
           laravel = true;
           obsidian = true;
           test = true;
+          ai = true;
+          ollama = "http://10.27.22.20:11434";
           example = {
             youCan = "add more than just booleans";
             toThisSet = [

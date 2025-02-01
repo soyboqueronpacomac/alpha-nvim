@@ -137,13 +137,30 @@
         "type": "github"
       }
     },
+    "plugins-vague.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1736892584,
+        "narHash": "sha256-+EDnww3f7Vw3i92cz0hoKze+hDry1mWppWxYN6by/m4=",
+        "owner": "vague2k",
+        "repo": "vague.nvim",
+        "rev": "aa744dbf7bfc768da3dd232ccde3b337182903dc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vague2k",
+        "repo": "vague.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "blade-treesitter": "blade-treesitter",
         "blink": "blink",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
-        "plugins-laravel.nvim": "plugins-laravel.nvim"
+        "plugins-laravel.nvim": "plugins-laravel.nvim",
+        "plugins-vague.nvim": "plugins-vague.nvim"
       }
     },
     "rust-analyzer-src": {

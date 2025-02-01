@@ -81,6 +81,9 @@ return {
 
                     if require('nixCatsUtils').enableForCategory("ai") then
                         table.insert(sources, "copilot")
+                        table.insert(sources, "avante_commands")
+                        table.insert(sources, "avante_mentions")
+                        table.insert(sources, "avante_files")
                     end
 
                     return sources
@@ -96,6 +99,24 @@ return {
                         score_offset = 100,
                         async = true,
                     },
+                    avante_commands = {
+                        name = "avante_commands",
+                        module = "blink.compat.source",
+                        score_offset = 90, -- show at a higher priority than lsp
+                        opts = {},
+                    },
+                    avante_files = {
+                        name = "avante_files",
+                        module = "blink.compat.source",
+                        score_offset = 100, -- show at a higher priority than lsp
+                        opts = {},
+                    },
+                    avante_mentions = {
+                        name = "avante_mentions",
+                        module = "blink.compat.source",
+                        score_offset = 1000, -- show at a higher priority than lsp
+                        opts = {},
+                    }
                 },
             },
         },

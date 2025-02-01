@@ -13,4 +13,7 @@ return {
     opts = {
         provider = 'copilot',
     },
+    file_selector = {
+        provider = "fzf",
+    },
 }

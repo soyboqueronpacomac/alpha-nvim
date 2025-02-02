@@ -144,6 +144,7 @@
               gitea
               nixd
               nixfmt-rfc-style
+              jq
             ];
           };
 

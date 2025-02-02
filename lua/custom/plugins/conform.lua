@@ -1,6 +1,7 @@
 local formatters = {
 	lua = { "stylua", lsp_format = "fallback" },
 	nix = { "nixfmt" },
+	json = { "jq" },
 }
 
 if require("nixCatsUtils").enableForCategory("go") then

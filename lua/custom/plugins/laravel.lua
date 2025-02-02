@@ -1,6 +1,7 @@
 return {
     "adalessa/laravel.nvim",
     enabled = require('nixCatsUtils').enableForCategory("laravel"),
+    dir = "~/code/plugins/laravel.nvim",
     dependencies = {
         "tpope/vim-dotenv",
         "MunifTanjim/nui.nvim",

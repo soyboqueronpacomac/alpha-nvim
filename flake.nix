@@ -132,14 +132,17 @@
               intelephense
               blade-formatter
             ];
+            go = with pkgs; [
+              go
+              gopls
+              gotools
+            ];
             general = with pkgs; [
               lua-language-server
               stylua
               fzf
-              nixd
-              go
-              gopls
               gitea
+              nixd
               nixfmt-rfc-style
             ];
           };
@@ -291,6 +294,7 @@
               fuzzy-finder = true;
               customPlugins = true;
               laravel = true;
+              go = true;
               obsidian = true;
               test = true;
               ai = true;

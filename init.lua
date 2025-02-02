@@ -5,6 +5,7 @@ require('nixCatsUtils').setup {
 require('core.options')
 require('core.replace_action')
 require('core.diagnostic')
+require('core.autocommands')
 
 -- NOTE: nixCats: You might want to move the lazy-lock.json file
 local function getlockfilepath()

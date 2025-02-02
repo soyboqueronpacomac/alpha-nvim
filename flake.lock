@@ -153,6 +153,22 @@
         "type": "github"
       }
     },
+    "plugins-neotest-pest": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1718118945,
+        "narHash": "sha256-uSPrvZPCjBhoAYTnAUQdMZ/CSosyRkj4itSQDZgthZ4=",
+        "owner": "V13Axel",
+        "repo": "neotest-pest",
+        "rev": "b665a4881c706eea476fcaf79a21996e9b65514d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "V13Axel",
+        "repo": "neotest-pest",
+        "type": "github"
+      }
+    },
     "plugins-vague.nvim": {
       "flake": false,
       "locked": {
@@ -177,6 +193,7 @@
         "nixpkgs": "nixpkgs",
         "plugins-codecompanion.nvim": "plugins-codecompanion.nvim",
         "plugins-laravel.nvim": "plugins-laravel.nvim",
+        "plugins-neotest-pest": "plugins-neotest-pest",
         "plugins-vague.nvim": "plugins-vague.nvim"
       }
     },

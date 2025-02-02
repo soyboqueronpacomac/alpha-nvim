@@ -31,6 +31,11 @@
       flake = false;
     };
 
+    "plugins-neotest-pest" = {
+      url = "github:V13Axel/neotest-pest";
+      flake = false;
+    };
+
     "plugins-codecompanion.nvim" = {
       url = "github:olimorris/codecompanion.nvim";
       flake = false;
@@ -138,6 +143,13 @@
           luasnip
           pkgs.neovimPlugins.vague-nvim
           direnv-vim
+          neotest
+          nvim-nio
+          plenary-nvim
+          FixCursorHold-nvim
+          vim-dadbod
+          vim-dadbod-ui
+          vim-dadbod-completion
         ];
 
         file-manager = with pkgs.vimPlugins; [
@@ -165,7 +177,7 @@
           nui-nvim
           vim-dotenv
           promise-async
-
+          (pkgs.neovimPlugins.neotest-pest.overrideAttrs {pname = "neotest-pest";})
           (nvim-treesitter.grammarToPlugin (
             pkgs.tree-sitter.buildGrammar {
                 language = "blade";

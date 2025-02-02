@@ -150,6 +150,7 @@
           vim-dadbod
           vim-dadbod-ui
           vim-dadbod-completion
+          (harpoon2.overrideAttrs { pname = "harpoon"; })
         ];
 
         file-manager = with pkgs.vimPlugins; [

@@ -87,6 +87,10 @@ return {
                         return { 'dadbod', 'snippets' }
                     end
 
+                    if vim.tbl_contains({ 'markdown' }, vim.bo.filetype) then
+                        return { 'buffer', 'path', 'snippets' }
+                    end
+
                     if require('nixCatsUtils').enableForCategory("ai") then
                         table.insert(sources, "copilot")
                         table.insert(sources, "avante_commands")
@@ -128,6 +132,17 @@ return {
                     }
                 },
             },
+            completion = {
+                menu = {
+                    auto_show = function(ctx)
+                        if vim.tbl_contains({ 'markdown' }, vim.bo.filetype) then
+                            return false
+                        end
+
+                        return ctx.mode ~= "cmdline" or not vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype())
+                    end,
+                },
+            }
         },
         opts_extend = { "sources.default" },
         config = function(_, opts)

@@ -169,6 +169,22 @@
         "type": "github"
       }
     },
+    "plugins-snacks.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1738762786,
+        "narHash": "sha256-i/0C57mjXkGNZR7QTr9rEPtj7MTYWm1aodYrlwR61rY=",
+        "owner": "folke",
+        "repo": "snacks.nvim",
+        "rev": "09349ecd44040666db9d4835994a378a9ff53e8c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "snacks.nvim",
+        "type": "github"
+      }
+    },
     "plugins-vague.nvim": {
       "flake": false,
       "locked": {
@@ -194,6 +210,7 @@
         "plugins-codecompanion.nvim": "plugins-codecompanion.nvim",
         "plugins-laravel.nvim": "plugins-laravel.nvim",
         "plugins-neotest-pest": "plugins-neotest-pest",
+        "plugins-snacks.nvim": "plugins-snacks.nvim",
         "plugins-vague.nvim": "plugins-vague.nvim"
       }
     },

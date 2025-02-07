@@ -26,6 +26,11 @@
       flake = false;
     };
 
+    "plugins-snacks.nvim" = {
+      url = "github:folke/snacks.nvim";
+      flake = false;
+    };
+
     "plugins-vague.nvim" = {
       url = "github:vague2k/vague.nvim";
       flake = false;
@@ -160,7 +165,8 @@
               blink-compat
               mini-icons
               friendly-snippets
-              snacks-nvim
+              # snacks-nvim
+              pkgs.neovimPlugins.snacks-nvim
               lualine-nvim
               vim-surround
               luasnip

@@ -12,4 +12,5 @@ return {
         end,
     },
     "direnv/direnv.vim",
+    "echasnovski/mini.ai",
 }

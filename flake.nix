@@ -181,15 +181,12 @@
               vim-dadbod-completion
               (harpoon2.overrideAttrs { pname = "harpoon"; })
               conform-nvim
+              mini-pick
+              mini-ai
             ];
 
             file-manager = with pkgs.vimPlugins; [
               oil-nvim
-              mini-icons
-            ];
-
-            fuzzy-finder = with pkgs.vimPlugins; [
-              fzf-lua
               mini-icons
             ];
 
@@ -221,6 +218,7 @@
             obsidian = with pkgs.vimPlugins; [
               obsidian-nvim
               plenary-nvim
+              fzf-lua
             ];
           };
 
@@ -298,7 +296,6 @@
               general = true;
               gitPlugins = true;
               file-manager = true;
-              fuzzy-finder = true;
               customPlugins = true;
               laravel = true;
               go = true;

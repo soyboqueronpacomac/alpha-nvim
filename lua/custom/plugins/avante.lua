@@ -14,6 +14,6 @@ return {
         provider = 'copilot',
     },
     file_selector = {
-        provider = "fzf",
+        provider = "snacks",
     },
 }

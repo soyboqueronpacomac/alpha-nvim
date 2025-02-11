@@ -113,7 +113,7 @@ return {
 		{
 			"<leader>pp",
 			function()
-				require("snacks").picker.smart()
+				require("snacks").picker.smart({ multi = { "buffers", "files" } })
 			end,
 			desc = "Smart Picker",
 		},

@@ -3,7 +3,7 @@ return {
   ---@module 'oil'
   ---@type oil.SetupOpts
   opts = {},
-  enabled = require('nixCatsUtils').enableForCategory("file-manager"),
+  enabled = require('nixCatsUtils').enableForCategory("fileManager"),
   keys = {
     {"-", "<cmd>Oil<cr>"}
   },

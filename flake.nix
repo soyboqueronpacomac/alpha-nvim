@@ -16,6 +16,11 @@
       };
     };
 
+    "plugins-git-worktree.nvim" = {
+      url = "github:polarmutex/git-worktree.nvim";
+      flake = false;
+    };
+
     blade-treesitter = {
       url = "github:EmranMR/tree-sitter-blade";
       flake = false;
@@ -151,6 +156,9 @@
               nixfmt-rfc-style
               jq
             ];
+            symfony = with pkgs; [
+              phpactor
+            ];
           };
 
           # This is for plugins that will load at startup without using packadd:
@@ -183,9 +191,10 @@
               conform-nvim
               mini-pick
               mini-ai
+              vim-dispatch
             ];
 
-            file-manager = with pkgs.vimPlugins; [
+            fileManager = with pkgs.vimPlugins; [
               oil-nvim
               mini-icons
             ];
@@ -213,6 +222,11 @@
                   src = inputs.blade-treesitter;
                 }
               ))
+            ];
+
+            symfony = with pkgs.vimPlugins; [
+              neotest-phpunit
+              pkgs.neovimPlugins.git-worktree-nvim
             ];
 
             obsidian = with pkgs.vimPlugins; [
@@ -293,16 +307,16 @@
             # and a set of categories that you want
             # (and other information to pass to lua)
             categories = {
+              ai = true;
+              customPlugins = true;
+              fileManager = true;
               general = true;
               gitPlugins = true;
-              file-manager = true;
-              customPlugins = true;
-              laravel = true;
               go = true;
+              laravel = true;
               obsidian = true;
-              test = true;
-              ai = true;
               ollama = "http://10.27.22.20:11434";
+              test = true;
               example = {
                 youCan = "add more than just booleans";
                 toThisSet = [
@@ -312,6 +326,32 @@
                   "see :help nixCats"
                 ];
               };
+            };
+          };
+        nvim-work =
+          { ... }:
+          {
+            settings = {
+              wrapRc = true;
+              # IMPORTANT:
+              # your alias may not conflict with your other packages.
+              #aliases = [ "nvim-work" ];
+              # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
+            };
+
+            categories = {
+              ai = true;
+              behat = true;
+              fileManager = true;
+              general = true;
+              go = true;
+              laravel = false;
+              makeRunner = true;
+              obsidian = true;
+              ollama = null;
+              test = true;
+              symfony = true;
+              worktree = true;
             };
           };
       };

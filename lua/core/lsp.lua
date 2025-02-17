@@ -148,45 +148,34 @@ return { -- LSP Configuration & Plugins
 
 		if require("nixCatsUtils").enableForCategory("symfony") then
 			servers.phpactor = {
-				extraOptions = {
-					init_options = {
-						language_server_configuration = { auto_config = false },
-						language_server_worse_reflection = {
-							inlay_hints = {
-								enable = true,
-								types = false,
-								params = true,
-							},
-						},
-						code_transform = { import_globals = true },
-						phpunit = { enabled = true },
-						indexer = {
-							exclude_patterns = {
-								"/vendor/**/Tests/**/*",
-								"/vendor/**/tests/**/*",
-								"/var/cache/**/*",
-								"/vendor/composer/**/*",
-								"/vendor/laravel/fortify/workbench/**/*",
-								"/vendor/filament/forms/.stubs.php",
-								"/vendor/filament/notifications/.stubs.php",
-								"/vendor/filament/tables/.stubs.php",
-								"/vendor/filament/actions/.stubs.php",
-								"/storage/framework/cache/**/*",
-								"/storage/framework/views/**/*",
-								"vendor/kirschbaum-development/eloquent-power-joins/.stubs.php",
-							},
-						},
-						php_code_sniffer = {
-							enabled = true,
-							bin = "%project_root%/bin/phpcs",
-						},
-						language_server_phpstan = {
-							enabled = true,
-							level = 7,
-							bin = "%project_root%/bin/phpstan",
-							mem_limit = "2048M",
-						},
+				init_options = {
+					["language_server_configuration.auto_config"] = false,
+					["language_server_worse_reflection.inlay_hints.enable"] = true,
+					["language_server_worse_reflection.inlay_hints.types"] = false,
+					["language_server_worse_reflection.inlay_hints.params"] = true,
+					["code_transform.import_globals"] = true,
+					["phpunit.enabled"] = true,
+					["indexer.exclude_patterns"] = {
+						"/vendor/**/Tests/**/*",
+						"/vendor/**/tests/**/*",
+						"/var/cache/**/*",
+						"/vendor/composer/**/*",
+						"/vendor/laravel/fortify/workbench/**/*",
+						"/vendor/filament/forms/.stubs.php",
+						"/vendor/filament/notifications/.stubs.php",
+						"/vendor/filament/tables/.stubs.php",
+						"/vendor/filament/actions/.stubs.php",
+						"/storage/framework/cache/**/*",
+						"/storage/framework/views/**/*",
+						"vendor/kirschbaum-development/eloquent-power-joins/.stubs.php",
 					},
+					["php_code_sniffer.enabled"] = true,
+					["php_code_sniffer.bin"] = "%project_root%/bin/phpcs",
+
+					["language_server_phpstan.enabled"] = true,
+					["language_server_phpstan.level"] = "7",
+					["language_server_phpstan.bin"] = "%project_root%/bin/phpstan",
+					["language_server_phpstan.mem_limit"] = "2048M",
 				},
 			}
 		end
@@ -203,6 +192,7 @@ return { -- LSP Configuration & Plugins
 				require("lspconfig")[server_name].setup({
 					capabilities = capabilities,
 					settings = servers[server_name],
+					init_options = (servers[server_name] or {}).init_options,
 					filetypes = (servers[server_name] or {}).filetypes,
 					cmd = (servers[server_name] or {}).cmd,
 					root_pattern = (servers[server_name] or {}).root_pattern,

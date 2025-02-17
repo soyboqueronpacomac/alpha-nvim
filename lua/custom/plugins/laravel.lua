@@ -32,8 +32,7 @@ return {
 					return "gf"
 				end
 			end,
-			noremap = false,
-			expr = true,
+			{ noremap = false, expr = true },
 		},
 	},
 	event = { "VeryLazy" },

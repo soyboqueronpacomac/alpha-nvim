@@ -16,13 +16,13 @@
       };
     };
 
-    "plugins-git-worktree.nvim" = {
-      url = "github:polarmutex/git-worktree.nvim";
+    blade-treesitter = {
+      url = "github:EmranMR/tree-sitter-blade";
       flake = false;
     };
 
-    blade-treesitter = {
-      url = "github:EmranMR/tree-sitter-blade";
+    "plugins-git-worktree.nvim" = {
+      url = "github:polarmutex/git-worktree.nvim";
       flake = false;
     };
 
@@ -60,7 +60,6 @@
     # overlay defined for custom builds in the overlays directory.
     # for specific tags, branches and commits, see:
     # https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-flake.html#examples
-
   };
 
   # see :help nixCats.flake.outputs
@@ -352,6 +351,29 @@
               test = true;
               symfony = true;
               worktree = true;
+              avanteOpts = {
+                auto_suggestions_provider = "mistral";
+                claude = {
+                  endpoint = "https://delorean-app.prod.apps.auto1.team/proxy-api/anthropic/";
+                  model = "claude-3-5-sonnet-20241022";
+                  temperature = 0;
+                  max_tokens = 4096;
+                };
+                openai = {
+                  endpoint = "https://delorean-app.prod.apps.auto1.team/proxy-api/openai/v1";
+                  model = "gpt-4o-mini";
+                  timeout = 30000;
+                  temperature = 0;
+                  max_tokens = 4096;
+                };
+                vendors = {
+                  mistral = {
+                    __inherited_from = "openai";
+                    endpoint = "https://delorean-app.prod.apps.auto1.team/proxy-api/mistral/v1";
+                    model = "mistral-small-latest";
+                  };
+                };
+              };
             };
           };
       };
@@ -442,5 +464,4 @@
         inherit (utils) templates;
       }
     );
-
 }

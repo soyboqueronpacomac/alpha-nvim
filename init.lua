@@ -6,6 +6,7 @@ require("core.options")
 require("core.replace_action")
 require("core.diagnostic")
 require("core.autocommands")
+require("custom.quickfixmaps")
 
 -- NOTE: nixCats: You might want to move the lazy-lock.json file
 local function getlockfilepath()

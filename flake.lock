@@ -121,6 +121,23 @@
         "url": "https://github.com/NixOS/nixpkgs/archive/5487e69da40cbd611ab2cadee0b4637225f7cfae.tar.gz"
       }
     },
+    "phpactor-laravel": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1739993102,
+        "narHash": "sha256-iqAxnQVupb+7YRSOd4L3vWQd2E7nSwQPPQcmFKOVWy4=",
+        "owner": "adalessa",
+        "repo": "phpactor",
+        "rev": "d9ef2505b2a1404e72c93eecfff29db6d7e7ae26",
+        "type": "github"
+      },
+      "original": {
+        "owner": "adalessa",
+        "ref": "feature/laravel-extension",
+        "repo": "phpactor",
+        "type": "github"
+      }
+    },
     "plugins-codecompanion.nvim": {
       "flake": false,
       "locked": {
@@ -223,6 +240,7 @@
         "blink": "blink",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
+        "phpactor-laravel": "phpactor-laravel",
         "plugins-codecompanion.nvim": "plugins-codecompanion.nvim",
         "plugins-git-worktree.nvim": "plugins-git-worktree.nvim",
         "plugins-laravel.nvim": "plugins-laravel.nvim",

@@ -21,6 +21,11 @@
       flake = false;
     };
 
+    phpactor-laravel = {
+      url = "github:adalessa/phpactor/feature/laravel-extension";
+      flake = false;
+    };
+
     "plugins-git-worktree.nvim" = {
       url = "github:polarmutex/git-worktree.nvim";
       flake = false;
@@ -138,7 +143,13 @@
           # this includes LSPs
           lspsAndRuntimeDeps = {
             laravel = with pkgs; [
-              intelephense
+              (pkgs.php.buildComposerProject (finalAttrs: {
+                pname = "phpactor";
+                version = "master";
+                src = inputs.phpactor-laravel;
+                vendorHash = "sha256-LGPnIPfAA0Uxu6EG6S/5dp1vne+Ed07Y8NDCV/ckb28=";
+                buildInputs = [ pkgs.php84 ];
+              }))
               blade-formatter
             ];
             go = with pkgs; [
@@ -335,7 +346,10 @@
               wrapRc = true;
               # IMPORTANT:
               # your alias may not conflict with your other packages.
-              aliases = [ "nvim" "vim" ];
+              aliases = [
+                "nvim"
+                "vim"
+              ];
               # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
             };
 

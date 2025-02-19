@@ -191,6 +191,7 @@
               mini-pick
               mini-ai
               vim-dispatch
+              gitsigns-nvim
             ];
 
             fileManager = with pkgs.vimPlugins; [

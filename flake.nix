@@ -216,6 +216,7 @@
               copilot-lua
               blink-cmp-copilot
               avante-nvim
+              render-markdown-nvim
               nui-nvim
             ];
 

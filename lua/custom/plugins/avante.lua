@@ -3,7 +3,7 @@ local opts = vim.tbl_extend("force", {
 	file_selector = {
 		provider = "snacks",
 	},
-}, nixCats("avanteOpts") or {})
+}, require("nixCatsUtils").getCatOrDefault("avanteOpts", {}))
 
 return {
 	"yetone/avante.nvim",

@@ -179,36 +179,37 @@
           # This is for plugins that will load at startup without using packadd:
           startupPlugins = {
             general = with pkgs.vimPlugins; [
-              nvim-lspconfig
-              fidget-nvim
-              lazydev-nvim
-              nvim-treesitter.withAllGrammars
-              nvim-treesitter-textobjects
-              (inputs.blink.packages.${pkgs.system}.blink-cmp.overrideAttrs { pname = "blink.cmp"; })
               blink-compat
-              mini-icons
-              friendly-snippets
-              # snacks-nvim
-              pkgs.neovimPlugins.snacks-nvim
-              lualine-nvim
-              vim-surround
-              luasnip
-              pkgs.neovimPlugins.vague-nvim
-              direnv-vim
-              neotest
-              nvim-nio
-              plenary-nvim
-              FixCursorHold-nvim
-              vim-dadbod
-              vim-dadbod-ui
-              vim-dadbod-completion
-              (harpoon2.overrideAttrs { pname = "harpoon"; })
               conform-nvim
-              mini-pick
-              mini-ai
-              vim-dispatch
+              direnv-vim
+              fidget-nvim
+              FixCursorHold-nvim
+              friendly-snippets
               gitsigns-nvim
+              (harpoon2.overrideAttrs { pname = "harpoon"; })
+              (inputs.blink.packages.${pkgs.system}.blink-cmp.overrideAttrs { pname = "blink.cmp"; })
+              lazydev-nvim
+              lualine-nvim
+              luasnip
+              mini-ai
+              mini-icons
+              mini-pick
+              neotest
+              nvim-autopairs
+              nvim-lspconfig
+              nvim-nio
+              nvim-treesitter-textobjects
+              nvim-treesitter.withAllGrammars
               pkgs.neovimPlugins.php-lsp-utils
+              pkgs.neovimPlugins.snacks-nvim
+              pkgs.neovimPlugins.vague-nvim
+              plenary-nvim
+              # snacks-nvim
+              vim-dadbod
+              vim-dadbod-completion
+              vim-dadbod-ui
+              vim-dispatch
+              vim-surround
             ];
 
             fileManager = with pkgs.vimPlugins; [

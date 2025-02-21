@@ -48,9 +48,11 @@ function M.pick(opts)
 
 				return vim.iter(elements)
 					:map(function(element)
+						local type = "mutation"
 						local args = string.match(element.resolver, "'@=mutation%((.+)%)'")
 						if args == nil then
 							args = string.match(element.resolver, "'@=query%((.+)%)'")
+							type = "query"
 						end
 						if args == nil then
 							return
@@ -66,6 +68,8 @@ function M.pick(opts)
 
 						return {
 							file = item.schema,
+							basename = vim.fs.basename(item.schema),
+							type = type,
 							bufnr = item.bufnr,
 							uri = item.uri,
 							name = element.value,
@@ -83,13 +87,17 @@ function M.pick(opts)
 					value = item,
 					file = item.file,
 					pos = { item.line, 0 },
-					text = item.name,
+					text = vim.iter({ item.type, item.name, item.basename }):join(" "),
 				}
 			end)
 			:totable(),
 		format = function(item)
 			return {
+				{ string.format("[%s]", item.value.type), "@string" },
+				{ " ", "@string" },
 				{ item.value.name, "@keyword" },
+				{ " ", "@string" },
+				{ string.format("<%s>", item.value.basename), "@comment" },
 			}
 		end,
 		actions = {

@@ -31,4 +31,9 @@ require("nixCatsUtils.lazyCat").setup(nixCats.pawsible({ "allPlugins", "start", 
 	{ import = "custom.plugins" },
 }, lazyOptions)
 
-require('tools')
+require("tools")
+
+-- TODO: search a better place for this
+if require("nixCatsUtils").enableForCategory("symfony") then
+	vim.opt.path:append("tests/**/httpstubs/**/")
+end

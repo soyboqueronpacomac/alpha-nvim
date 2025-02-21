@@ -202,6 +202,22 @@
         "type": "github"
       }
     },
+    "plugins-php-lsp-utils": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1696425701,
+        "narHash": "sha256-SDIuh0cngigs14V5MBPU+oCxyqaO5MgbEHzRfscz/is=",
+        "owner": "adalessa",
+        "repo": "php-lsp-utils",
+        "rev": "650e4fefd7f22d6b1b075d14aac666d008679c88",
+        "type": "github"
+      },
+      "original": {
+        "owner": "adalessa",
+        "repo": "php-lsp-utils",
+        "type": "github"
+      }
+    },
     "plugins-snacks.nvim": {
       "flake": false,
       "locked": {
@@ -245,6 +261,7 @@
         "plugins-git-worktree.nvim": "plugins-git-worktree.nvim",
         "plugins-laravel.nvim": "plugins-laravel.nvim",
         "plugins-neotest-pest": "plugins-neotest-pest",
+        "plugins-php-lsp-utils": "plugins-php-lsp-utils",
         "plugins-snacks.nvim": "plugins-snacks.nvim",
         "plugins-vague.nvim": "plugins-vague.nvim"
       }

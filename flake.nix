@@ -31,6 +31,11 @@
       flake = false;
     };
 
+    plugins-php-lsp-utils = {
+      url = "github:adalessa/php-lsp-utils";
+      flake = false;
+    };
+
     "plugins-laravel.nvim" = {
       url = "github:adalessa/laravel.nvim";
       flake = false;
@@ -203,6 +208,7 @@
               mini-ai
               vim-dispatch
               gitsigns-nvim
+              pkgs.neovimPlugins.php-lsp-utils
             ];
 
             fileManager = with pkgs.vimPlugins; [

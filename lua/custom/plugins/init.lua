@@ -14,4 +14,5 @@ return {
     },
     "direnv/direnv.vim",
     "echasnovski/mini.ai",
+    "adalessa/php-lsp-utils",
 }

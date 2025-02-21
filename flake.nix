@@ -163,13 +163,14 @@
               gotools
             ];
             general = with pkgs; [
-              lua-language-server
-              stylua
               fzf
               gitea
+              jq
+              lazygit
+              lua-language-server
               nixd
               nixfmt-rfc-style
-              jq
+              stylua
             ];
             symfony = with pkgs; [
               phpactor
@@ -218,13 +219,13 @@
             ];
 
             ai = with pkgs.vimPlugins; [
+              avante-nvim
+              blink-cmp-copilot
+              copilot-lua
+              nui-nvim
               pkgs.neovimPlugins.codecompanion-nvim
               plenary-nvim
-              copilot-lua
-              blink-cmp-copilot
-              avante-nvim
               render-markdown-nvim
-              nui-nvim
             ];
 
             laravel = with pkgs.vimPlugins; [

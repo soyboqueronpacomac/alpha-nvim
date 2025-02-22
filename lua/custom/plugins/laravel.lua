@@ -27,12 +27,13 @@ return {
 			"gf",
 			function()
 				if require("laravel").app("gf").cursor_on_resource() then
-					return "<cmd>Laravel gf<CR>"
+					return "<cmd>Laravel gf<cr>"
 				else
 					return "gf"
 				end
 			end,
-			{ noremap = false, expr = true },
+            expr = true,
+            noremap = true,
 		},
 	},
 	event = { "VeryLazy" },

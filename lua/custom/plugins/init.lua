@@ -15,7 +15,7 @@ return {
   {
     "direnv/direnv.vim",
     init = function()
-      vim.g.direnv_silent = 1
+      vim.g.direnv_silent_load = 1
     end,
   },
   "echasnovski/mini.ai",

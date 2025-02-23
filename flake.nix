@@ -61,6 +61,16 @@
       flake = false;
     };
 
+    "plugins-menu" = {
+      url = "github:nvzone/menu";
+      flake = false;
+    };
+
+    "plugins-volt" = {
+      url = "github:nvzone/volt";
+      flake = false;
+    };
+
     # see :help nixCats.flake.inputs
     # If you want your plugin to be loaded by the standard overlay,
     # i.e. if it wasnt on nixpkgs, but doesnt have an extra build step.
@@ -201,9 +211,11 @@
               nvim-nio
               nvim-treesitter-textobjects
               nvim-treesitter.withAllGrammars
+              pkgs.neovimPlugins.menu
               pkgs.neovimPlugins.php-lsp-utils
               pkgs.neovimPlugins.snacks-nvim
               pkgs.neovimPlugins.vague-nvim
+              pkgs.neovimPlugins.volt
               plenary-nvim
               # snacks-nvim
               vim-dadbod

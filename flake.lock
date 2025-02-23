@@ -186,6 +186,22 @@
         "type": "github"
       }
     },
+    "plugins-menu": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1736924590,
+        "narHash": "sha256-VEFUUo3h1Wg2+Yn7n83DZYoScKKLl6oIbmBt0WClAb0=",
+        "owner": "nvzone",
+        "repo": "menu",
+        "rev": "7769b17c2a131108c02b10e9f844e504aa605cc2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvzone",
+        "repo": "menu",
+        "type": "github"
+      }
+    },
     "plugins-neotest-pest": {
       "flake": false,
       "locked": {
@@ -250,6 +266,22 @@
         "type": "github"
       }
     },
+    "plugins-volt": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1740276243,
+        "narHash": "sha256-uhNPJfqq28iAGSBEDobQgNuLNThwkMqpXgRO27eTtVI=",
+        "owner": "nvzone",
+        "repo": "volt",
+        "rev": "21a2351697abfed26d4469b88d3ab124d55a1b3f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvzone",
+        "repo": "volt",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "blade-treesitter": "blade-treesitter",
@@ -260,10 +292,12 @@
         "plugins-codecompanion.nvim": "plugins-codecompanion.nvim",
         "plugins-git-worktree.nvim": "plugins-git-worktree.nvim",
         "plugins-laravel.nvim": "plugins-laravel.nvim",
+        "plugins-menu": "plugins-menu",
         "plugins-neotest-pest": "plugins-neotest-pest",
         "plugins-php-lsp-utils": "plugins-php-lsp-utils",
         "plugins-snacks.nvim": "plugins-snacks.nvim",
-        "plugins-vague.nvim": "plugins-vague.nvim"
+        "plugins-vague.nvim": "plugins-vague.nvim",
+        "plugins-volt": "plugins-volt"
       }
     },
     "rust-analyzer-src": {

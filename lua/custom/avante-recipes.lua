@@ -81,3 +81,25 @@ local function set_keymap(map)
 end
 
 vim.iter(mappings):each(set_keymap)
+
+local ok, menu = pcall(require, "menu")
+if ok then
+  vim.keymap.set({ "n", "v" }, "<leader>aM", function()
+    menu.open(vim
+      .iter(mappings)
+      :map(function(map)
+        return {
+          name = map.desc,
+          rtxt = map.key,
+          cmd = function()
+            if map.mode == "v" then
+              populate_edit_window(map.question)
+            else
+              require("avante.api").ask({ question = map.question })
+            end
+          end,
+        }
+      end)
+      :totable())
+  end, {})
+end

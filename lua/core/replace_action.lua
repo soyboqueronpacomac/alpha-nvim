@@ -14,9 +14,9 @@ vim.cmd([[
 
 -- Define a new function to paste from the clipboard and restore the clipboard content
 local function paste_and_restore_clipboard()
-	local val = vim.fn.getreg("+")
-	vim.api.nvim_command("normal! p")
-	vim.fn.setreg("+", val)
+  local val = vim.fn.getreg("+")
+  vim.api.nvim_command("normal! p")
+  vim.fn.setreg("+", val)
 end
 
 -- Keymap for replace action

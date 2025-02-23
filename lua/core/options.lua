@@ -1,6 +1,6 @@
 -- Leader keys
-vim.g.mapleader = ' '
-vim.g.maplocalleader = '\\'
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
 -- Line numbers
 vim.o.number = true

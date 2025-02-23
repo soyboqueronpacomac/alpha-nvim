@@ -1,7 +1,7 @@
 vim.treesitter.query.set(
-	"yaml",
-	"GraphQL_endpoints",
-	[[
+  "yaml",
+  "GraphQL_endpoints",
+  [[
         (document (block_node (block_mapping (block_mapping_pair
             value: (block_node (block_mapping (block_mapping_pair
                 value: (block_node (block_mapping (block_mapping_pair

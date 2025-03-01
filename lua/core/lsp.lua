@@ -116,7 +116,7 @@ return { -- LSP Configuration & Plugins
     -- But for many setups, the LSP (`tsserver`) will work just fine
     --
     if require("nixCatsUtils").enableForCategory("javascript") then
-      servers.tsserver = {}
+      servers.ts_ls = {}
     end
     --
 

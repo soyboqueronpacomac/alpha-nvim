@@ -124,11 +124,11 @@
     "phpactor-laravel": {
       "flake": false,
       "locked": {
-        "lastModified": 1739993102,
-        "narHash": "sha256-iqAxnQVupb+7YRSOd4L3vWQd2E7nSwQPPQcmFKOVWy4=",
+        "lastModified": 1740307380,
+        "narHash": "sha256-uyQHgUqLCR7kbsB3EY2bL4ypxdJQylBdF0t2nRLbxFk=",
         "owner": "adalessa",
         "repo": "phpactor",
-        "rev": "d9ef2505b2a1404e72c93eecfff29db6d7e7ae26",
+        "rev": "eff7999c9e1311abeff2f276aa761a03ab3c83f2",
         "type": "github"
       },
       "original": {

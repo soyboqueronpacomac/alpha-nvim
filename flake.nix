@@ -162,15 +162,19 @@
                 pname = "phpactor";
                 version = "master";
                 src = inputs.phpactor-laravel;
-                vendorHash = "sha256-LGPnIPfAA0Uxu6EG6S/5dp1vne+Ed07Y8NDCV/ckb28=";
+                vendorHash = "sha256-9re+qnjcu9kqbwlxFnTtkL+wZHs+OxEax6Jl5T3c5s0=";
                 buildInputs = [ pkgs.php84 ];
               }))
+              phpactor
               blade-formatter
             ];
             go = with pkgs; [
               go
               gopls
               gotools
+            ];
+            javascript = with pkgs; [
+              typescript-language-server
             ];
             general = with pkgs; [
               fzf
@@ -346,9 +350,36 @@
               gitPlugins = true;
               go = true;
               laravel = true;
+              javascript = true;
               obsidian = true;
               ollama = "http://10.27.22.20:11434";
               test = true;
+              example = {
+                youCan = "add more than just booleans";
+                toThisSet = [
+                  "and the contents of this categories set"
+                  "will be accessible to your lua with"
+                  "nixCats('path.to.value')"
+                  "see :help nixCats"
+                ];
+              };
+            };
+          };
+        nvim-phpactor =
+          { pkgs, ... }:
+          {
+            categories = {
+              ai = true;
+              customPlugins = true;
+              fileManager = true;
+              general = true;
+              gitPlugins = true;
+              go = true;
+              laravel = true;
+              obsidian = true;
+              ollama = "http://10.27.22.20:11434";
+              test = true;
+              local-phpactor = true;
               example = {
                 youCan = "add more than just booleans";
                 toThisSet = [

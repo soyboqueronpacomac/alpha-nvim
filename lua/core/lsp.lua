@@ -171,6 +171,9 @@ return { -- LSP Configuration & Plugins
           ["language_server_phpstan.mem_limit"] = "2048M",
         },
       }
+      if require("nixCatsUtils").enableForCategory("local-phpactor", false) then
+        servers.phpactor.cmd = { "/home/alpha/code/php/phpactor/bin/phpactor", "language-server" }
+      end
     end
 
     if require("nixCatsUtils").enableForCategory("symfony") then

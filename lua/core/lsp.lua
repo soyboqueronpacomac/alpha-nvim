@@ -114,7 +114,10 @@ return { -- LSP Configuration & Plugins
     --    https://github.com/pmizio/typescript-tools.nvim
     --
     -- But for many setups, the LSP (`tsserver`) will work just fine
-    -- servers.tsserver = {},
+    --
+    if require("nixCatsUtils").enableForCategory("javascript") then
+      servers.tsserver = {}
+    end
     --
 
     -- NOTE: nixCats: nixd is not available on mason.

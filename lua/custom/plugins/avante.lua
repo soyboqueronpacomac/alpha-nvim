@@ -12,13 +12,12 @@ return {
   version = false,
   enabled = require("nixCatsUtils").enableForCategory("ai"),
   keys = {
-    -- TODO: add once version up to 0.19
-    -- {
-    -- 	"<leader>az",
-    -- 	function()
-    -- 		require("avante.model_selector").open()
-    -- 	end,
-    -- },
+    {
+    	"<leader>az",
+    	function()
+    		require("avante.model_selector").open()
+    	end,
+    },
   },
   build = "make",
   dependencies = {

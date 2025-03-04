@@ -1,10 +1,3 @@
-local opts = vim.tbl_extend("force", {
-  provider = "copilot",
-  file_selector = {
-    provider = "snacks",
-  },
-}, require("nixCatsUtils").getCatOrDefault("avanteOpts", {}) or {})
-
 return {
   "yetone/avante.nvim",
   event = "VeryLazy",
@@ -33,7 +26,12 @@ return {
       ft = { "markdown", "Avante" },
     },
   },
-  opts = opts,
+  opts = vim.tbl_extend("force", {
+    provider = "copilot",
+    file_selector = {
+      provider = "snacks",
+    },
+  }, require("nixCatsUtils").getCatOrDefault("avanteOpts", {}) or {}),
   config = function(_, o)
     require("avante").setup(o)
     require("custom.avante-recipes")

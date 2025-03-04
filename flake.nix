@@ -422,7 +422,7 @@
                 auto_suggestions_provider = "mistral";
                 claude = {
                   endpoint = "https://delorean-app.prod.apps.auto1.team/proxy-api/anthropic/";
-                  model = "claude-3-7-sonnet-20241022";
+                  model = "claude-3-7-sonnet-20250219";
                   temperature = 0;
                   max_tokens = 4096;
                 };

@@ -31,11 +31,11 @@ return {
     file_selector = {
       provider = "snacks",
     },
-    copilot = {
-      model = "claude-3.7-sonnet",
-      temperature = 0,
-      max_tokens = 8192,
-    },
+    -- copilot = {
+    --   model = "claude-3.7-sonnet",
+    --   temperature = 0,
+    --   max_tokens = 8192,
+    -- },
   }, require("nixCatsUtils").getCatOrDefault("avanteOpts", {}) or {}),
   config = function(_, o)
     require("avante").setup(o)

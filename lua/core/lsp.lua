@@ -19,6 +19,8 @@ return { -- LSP Configuration & Plugins
         library = {
           -- adds type hints for nixCats global
           { path = (require("nixCats").nixCatsPath or "") .. "/lua", words = { "nixCats" } },
+          { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+          { path = "${3rd}/love2d/library", words = { "love" } },
         },
       },
     },
@@ -165,6 +167,7 @@ return { -- LSP Configuration & Plugins
             "/storage/framework/cache/**/*",
             "/storage/framework/views/**/*",
             "vendor/kirschbaum-development/eloquent-power-joins/.stubs.php",
+            "/vendor/**/_ide_helpers.php",
           },
           ["php_code_sniffer.enabled"] = false,
 

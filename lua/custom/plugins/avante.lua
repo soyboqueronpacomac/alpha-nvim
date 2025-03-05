@@ -6,10 +6,10 @@ return {
   enabled = require("nixCatsUtils").enableForCategory("ai"),
   keys = {
     {
-    	"<leader>az",
-    	function()
-    		require("avante.model_selector").open()
-    	end,
+      "<leader>az",
+      function()
+        require("avante.model_selector").open()
+      end,
     },
   },
   build = "make",
@@ -30,6 +30,11 @@ return {
     provider = "copilot",
     file_selector = {
       provider = "snacks",
+    },
+    copilot = {
+      model = "claude-3.7-sonnet",
+      temperature = 0,
+      max_tokens = 8192,
     },
   }, require("nixCatsUtils").getCatOrDefault("avanteOpts", {}) or {}),
   config = function(_, o)

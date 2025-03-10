@@ -21,6 +21,7 @@ return { -- LSP Configuration & Plugins
           { path = (require("nixCats").nixCatsPath or "") .. "/lua", words = { "nixCats" } },
           { path = "${3rd}/luv/library", words = { "vim%.uv" } },
           { path = "${3rd}/love2d/library", words = { "love" } },
+          "nvim-dap-ui",
         },
       },
     },
@@ -244,6 +245,7 @@ return { -- LSP Configuration & Plugins
         "stylua", -- Used to format Lua code
         "blade-formatter", -- Used to format Blade code
         "goimports",
+        "php-debug-adapter",
       })
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

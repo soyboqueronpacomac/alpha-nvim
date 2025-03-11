@@ -79,10 +79,6 @@ return {
             table.insert(sources, "laravel")
           end
 
-          if vim.bo.filetype == "codecompanion" then
-            return { "codecompanion" }
-          end
-
           if vim.tbl_contains({ "sql", "mysq", "plsql" }, vim.bo.filetype) then
             return { "dadbod", "snippets" }
           end

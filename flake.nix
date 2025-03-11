@@ -56,11 +56,6 @@
       flake = false;
     };
 
-    "plugins-codecompanion.nvim" = {
-      url = "github:olimorris/codecompanion.nvim";
-      flake = false;
-    };
-
     "plugins-menu" = {
       url = "github:nvzone/menu";
       flake = false;
@@ -269,7 +264,6 @@
               blink-cmp-copilot
               copilot-lua
               nui-nvim
-              pkgs.neovimPlugins.codecompanion-nvim
               plenary-nvim
               render-markdown-nvim
             ];

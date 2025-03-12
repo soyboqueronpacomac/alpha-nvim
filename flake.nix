@@ -168,6 +168,10 @@
               gopls
               gotools
             ];
+            python = with pkgs; [
+              python312
+              python312Packages.python-lsp-server
+            ];
             javascript = with pkgs; [
               typescript-language-server
             ];
@@ -374,6 +378,7 @@
               gitPlugins = true;
               go = true;
               laravel = true;
+              python = true;
               javascript = true;
               obsidian = true;
               ollama = "http://10.27.22.20:11434";

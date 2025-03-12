@@ -148,6 +148,10 @@ return { -- LSP Configuration & Plugins
       },
     }
 
+    if require("nixCatsUtils").enableForCategory("python") then
+      servers.pylsp = {}
+    end
+
     if require("nixCatsUtils").enableForCategory("laravel") then
       servers.phpactor = {
         init_options = {

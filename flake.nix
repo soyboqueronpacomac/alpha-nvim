@@ -255,6 +255,7 @@
               vim-dadbod-ui
               vim-dispatch
               vim-surround
+              vim-repeat
               nvim-dap-ui
             ];
 

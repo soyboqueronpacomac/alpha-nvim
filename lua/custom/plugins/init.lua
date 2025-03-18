@@ -1,6 +1,7 @@
 return {
   "tpope/vim-surround",
   "tpope/vim-dispatch",
+  "tpope/vim-repeat",
   -- Lazy
   {
     "vague2k/vague.nvim",

@@ -4,14 +4,7 @@ return {
   lazy = false,
   version = false,
   enabled = require("nixCatsUtils").enableForCategory("ai"),
-  keys = {
-    {
-      "<leader>az",
-      function()
-        require("avante.model_selector").open()
-      end,
-    },
-  },
+  keys = {},
   build = "make",
   dependencies = {
     "stevearc/dressing.nvim",

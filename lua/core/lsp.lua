@@ -154,6 +154,7 @@ return { -- LSP Configuration & Plugins
 
     if require("nixCatsUtils").enableForCategory("laravel") then
       servers.phpactor = {
+        filetypes = { "php", "blade" },
         init_options = {
           ["language_server_configuration.auto_config"] = false,
           ["language_server_worse_reflection.inlay_hints.enable"] = true,

@@ -182,6 +182,32 @@ return { -- LSP Configuration & Plugins
           ["language_server_phpstan.bin"] = "%project_root%/vendor/phpstan",
           ["language_server_phpstan.mem_limit"] = "2048M",
         },
+        handlers = {
+          ["textDocument/publishDiagnostics"] = function(err, result, ...)
+            if vim.endswith(result.uri, "Test.php") then
+              result.diagnostics = vim.tbl_filter(function(diagnostic)
+                return (not vim.startswith(diagnostic.message, 'Namespace should probably be "Tests'))
+                  and (not vim.endswith(diagnostic.message, "PHPUnit\\Framework\\MockObject\\MockObject given."))
+              end, result.diagnostics)
+            end
+            if vim.endswith(result.uri, "blade.php") then
+              result.diagnostics = vim.tbl_filter(function(diagnostic)
+                return (not vim.startswith(diagnostic.message, 'Undefined variable "$this"'))
+              end, result.diagnostics)
+            end
+            vim.lsp.diagnostic.on_publish_diagnostics(err, result, ...)
+          end,
+
+          ["textDocument/inlayHint"] = function(err, result, ...)
+            for _, res in ipairs(result or {}) do
+              if res.kind == 2 then
+                res.label = res.label .. ":"
+              end
+              res.label = res.label .. " "
+            end
+            vim.lsp.handlers["textDocument/inlayHint"](err, result, ...)
+          end,
+        },
       }
       if require("nixCatsUtils").enableForCategory("local-phpactor", false) then
         servers.phpactor.cmd = { "/home/alpha/code/php/phpactor/bin/phpactor", "language-server" }
@@ -223,6 +249,8 @@ return { -- LSP Configuration & Plugins
     -- but don't... its not worth it. Just add the lsp to lspsAndRuntimeDeps.
     if require("nixCatsUtils").isNixCats then
       for server_name, _ in pairs(servers) do
+        local handlers = (servers[server_name] or {}).handlers
+        servers[server_name].handlers = nil
         require("lspconfig")[server_name].setup({
           capabilities = capabilities,
           settings = servers[server_name],
@@ -230,6 +258,7 @@ return { -- LSP Configuration & Plugins
           filetypes = (servers[server_name] or {}).filetypes,
           cmd = (servers[server_name] or {}).cmd,
           root_pattern = (servers[server_name] or {}).root_pattern,
+          handlers = handlers,
         })
       end
     else

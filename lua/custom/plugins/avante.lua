@@ -4,7 +4,6 @@ return {
   lazy = false,
   version = false,
   enabled = require("nixCatsUtils").enableForCategory("ai"),
-  keys = {},
   build = "make",
   dependencies = {
     "stevearc/dressing.nvim",
@@ -17,6 +16,14 @@ return {
         file_types = { "markdown", "Avante" },
       },
       ft = { "markdown", "Avante" },
+    },
+  },
+  keys = {
+    {
+      "<leader>aa",
+      function()
+        require("avante").current.sidebar.file_selector:add_current_buffer()
+      end,
     },
   },
   opts = vim.tbl_extend("force", {

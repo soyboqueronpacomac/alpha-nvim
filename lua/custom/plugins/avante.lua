@@ -20,7 +20,7 @@ return {
   },
   keys = {
     {
-      "<leader>aa",
+      "<leader>ai",
       function()
         require("avante").current.sidebar.file_selector:add_current_buffer()
       end,

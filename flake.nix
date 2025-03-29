@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
     # neovim-nightly-overlay = {
@@ -267,7 +268,7 @@
             ai = with pkgs.vimPlugins; [
               avante-nvim
               blink-cmp-copilot
-              copilot-lua
+              (inputs.nixpkgs-stable.legacyPackages.${pkgs.system}.vimPlugins.copilot-lua)
               nui-nvim
               plenary-nvim
               render-markdown-nvim

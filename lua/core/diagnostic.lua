@@ -1,8 +1,8 @@
 vim.keymap.set({ "n" }, "<leader>vn", function()
-  vim.diagnostic.jump({ count = 1 })
+  vim.diagnostic.jump({ count = 1, float = true })
 end, {})
 vim.keymap.set({ "n" }, "<leader>vp", function()
-  vim.diagnostic.jump({ count = -1 })
+  vim.diagnostic.jump({ count = -1, float = true })
 end, {})
 
 vim.diagnostic.config({

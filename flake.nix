@@ -16,6 +16,16 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
+    mcp-hub = {
+      url = "github:ravitemer/mcp-hub";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+    plugins-mcphub = {
+      url = "github:ravitemer/mcphub.nvim";
+      flake = false;
+    };
 
     blade-treesitter = {
       url = "github:EmranMR/tree-sitter-blade";
@@ -154,13 +164,7 @@
           # this includes LSPs
           lspsAndRuntimeDeps = {
             laravel = with pkgs; [
-              (pkgs.php.buildComposerProject (finalAttrs: {
-                pname = "phpactor";
-                version = "master";
-                src = inputs.phpactor-laravel;
-                vendorHash = "sha256-9re+qnjcu9kqbwlxFnTtkL+wZHs+OxEax6Jl5T3c5s0=";
-                buildInputs = [ pkgs.php84 ];
-              }))
+              (import ./phpactor-laravel.nix { inherit pkgs inputs; })
               phpactor
               blade-formatter
             ];
@@ -175,8 +179,14 @@
             ];
             javascript = with pkgs; [
               typescript-language-server
+              tailwindcss-language-server
+              emmet-language-server
+            ];
+            ai = [
+              inputs.mcp-hub.packages.${pkgs.system}.default
             ];
             general = with pkgs; [
+              uv
               fzf
               gitea
               jq
@@ -185,35 +195,7 @@
               nixd
               nixfmt-rfc-style
               stylua
-              (stdenv.mkDerivation {
-                name = "php-debug-adapter";
-                version = "1.33.1";
-
-                src = fetchurl {
-                  url = "https://github.com/xdebug/vscode-php-debug/releases/download/v1.33.1/php-debug-1.33.1.vsix";
-                  sha256 = "sha256-oN9xhG8BkK/jLS9aRV4Ff+EHsLcWe60Z2GDlvgkh5HM=";
-                };
-
-                buildInputs = [ unzip ];
-
-                phases = [
-                  "unpackPhase"
-                  "installPhase"
-                ];
-
-                unpackPhase = ''
-                  mkdir -p $out/extracted
-                  unzip $src -d $out/extracted
-                '';
-
-                installPhase = ''
-                  mkdir -p $out/bin
-                  echo '#!/bin/sh' > $out/bin/php-debug-adapter
-                  echo 'export LD_LIBRARY_PATH=$out/extracted' >> $out/bin/php-debug-adapter
-                  echo 'exec ${nodejs}/bin/node ${placeholder "out"}/extracted/extension/out/phpDebug.js "$@"' >> $out/bin/php-debug-adapter
-                  chmod +x "$out/bin/php-debug-adapter"
-                '';
-              })
+              (import ./php-debug-adapter.nix { inherit pkgs fetchurl stdenv; })
             ];
             symfony = with pkgs; [
               phpactor
@@ -272,6 +254,7 @@
               nui-nvim
               plenary-nvim
               render-markdown-nvim
+              pkgs.neovimPlugins.mcphub
             ];
 
             laravel = with pkgs.vimPlugins; [

@@ -78,6 +78,48 @@
         "type": "github"
       }
     },
+    "flake-parts_2": {
+      "inputs": {
+        "nixpkgs-lib": [
+          "mcp-hub",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1741352980,
+        "narHash": "sha256-+u2UunDA4Cl5Fci3m7S643HzKmIDAe+fiXrLqYsR2fs=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "f4330d22f1c5d2ba72d3d22df5597d123fdb60a9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "mcp-hub": {
+      "inputs": {
+        "flake-parts": "flake-parts_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1742757332,
+        "narHash": "sha256-34MDu9lC/ianjCowBelDGbkhH/vfols6ctfBTr7Wvow=",
+        "owner": "ravitemer",
+        "repo": "mcp-hub",
+        "rev": "9eba6d90d1bd0d21d24c8a8eeab52bfef58ae661",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ravitemer",
+        "repo": "mcp-hub",
+        "type": "github"
+      }
+    },
     "nixCats": {
       "locked": {
         "lastModified": 1743207292,
@@ -186,6 +228,22 @@
         "type": "github"
       }
     },
+    "plugins-mcphub": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1742572291,
+        "narHash": "sha256-jQMaACXXAXH9ocQdTjD46OooEZq/EJyBnyLDwvEX6Vo=",
+        "owner": "ravitemer",
+        "repo": "mcphub.nvim",
+        "rev": "0755da600727746f1a315d81f16f73f4203862b0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ravitemer",
+        "repo": "mcphub.nvim",
+        "type": "github"
+      }
+    },
     "plugins-menu": {
       "flake": false,
       "locked": {
@@ -286,12 +344,14 @@
       "inputs": {
         "blade-treesitter": "blade-treesitter",
         "blink": "blink",
+        "mcp-hub": "mcp-hub",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
         "phpactor-laravel": "phpactor-laravel",
         "plugins-git-worktree.nvim": "plugins-git-worktree.nvim",
         "plugins-laravel.nvim": "plugins-laravel.nvim",
+        "plugins-mcphub": "plugins-mcphub",
         "plugins-menu": "plugins-menu",
         "plugins-neotest-pest": "plugins-neotest-pest",
         "plugins-php-lsp-utils": "plugins-php-lsp-utils",

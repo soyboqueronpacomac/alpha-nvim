@@ -61,6 +61,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("ts_ls", require("nixCatsUtils").enableForCategory("javascript"))
+vim.lsp.enable("tailwind", require("nixCatsUtils").enableForCategory("javascript"))
+vim.lsp.enable("emmet", require("nixCatsUtils").enableForCategory("javascript"))
 vim.lsp.enable("pylsp", require("nixCatsUtils").enableForCategory("python"))
 vim.lsp.enable("phpactor_laravel", require("nixCatsUtils").enableForCategory("laravel"))
 vim.lsp.enable("phpactor_symfony", require("nixCatsUtils").enableForCategory("symfony"))

@@ -44,6 +44,14 @@ return {
         provider = "snacks",
       },
     },
+    user_commands = {
+      composer = {
+        quality = {
+          cmd = { "quality" },
+          desc = "Runs the quality script in composer.json",
+        },
+      },
+    },
   },
   config = true,
 }

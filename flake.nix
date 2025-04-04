@@ -434,6 +434,11 @@
               worktree = true;
               avanteOpts = {
                 auto_suggestions_provider = "mistral";
+                provider = "claude";
+                behaviour = {
+                  enable_claude_text_editor_tool_mode = true;
+                  auto_apply_diff_after_generation = true;
+                };
                 claude = {
                   endpoint = "https://delorean-app.prod.apps.auto1.team/proxy-api/anthropic/";
                   model = "claude-3-7-sonnet-20250219";

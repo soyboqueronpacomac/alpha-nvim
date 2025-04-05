@@ -8,7 +8,6 @@ return {
   cmd = cmd,
   root_markers = { "composer.json" },
   filetypes = { "php", "blade" },
-  capabilities = require("blink.cmp").get_lsp_capabilities(),
   init_options = {
     ["language_server_configuration.auto_config"] = false,
     ["language_server_worse_reflection.inlay_hints.enable"] = true,

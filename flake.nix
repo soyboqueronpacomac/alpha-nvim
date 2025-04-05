@@ -10,18 +10,13 @@
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };
 
-    blink = {
-      url = "github:Saghen/blink.cmp";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
     mcp-hub = {
       url = "github:ravitemer/mcp-hub";
       inputs = {
         nixpkgs.follows = "nixpkgs";
       };
     };
+
     plugins-mcphub = {
       url = "github:ravitemer/mcphub.nvim";
       flake = false;
@@ -54,11 +49,6 @@
 
     "plugins-snacks.nvim" = {
       url = "github:folke/snacks.nvim";
-      flake = false;
-    };
-
-    "plugins-vague.nvim" = {
-      url = "github:vague2k/vague.nvim";
       flake = false;
     };
 
@@ -205,7 +195,9 @@
           # This is for plugins that will load at startup without using packadd:
           startupPlugins = {
             general = with pkgs.vimPlugins; [
+              blink-cmp
               blink-compat
+              (catppuccin-nvim.overrideAttrs { pname = "catppuccin"; })
               conform-nvim
               direnv-vim
               fidget-nvim
@@ -213,7 +205,6 @@
               friendly-snippets
               gitsigns-nvim
               (harpoon2.overrideAttrs { pname = "harpoon"; })
-              (inputs.blink.packages.${pkgs.system}.blink-cmp.overrideAttrs { pname = "blink.cmp"; })
               lazydev-nvim
               lualine-nvim
               luasnip
@@ -222,6 +213,8 @@
               mini-pick
               neotest
               nvim-autopairs
+              nvim-colorizer-lua
+              nvim-dap-ui
               nvim-lspconfig
               nvim-nio
               nvim-treesitter-textobjects
@@ -229,17 +222,14 @@
               pkgs.neovimPlugins.menu
               pkgs.neovimPlugins.php-lsp-utils
               pkgs.neovimPlugins.snacks-nvim
-              pkgs.neovimPlugins.vague-nvim
               pkgs.neovimPlugins.volt
               plenary-nvim
-              # snacks-nvim
               vim-dadbod
               vim-dadbod-completion
               vim-dadbod-ui
               vim-dispatch
-              vim-surround
               vim-repeat
-              nvim-dap-ui
+              vim-surround
             ];
 
             fileManager = with pkgs.vimPlugins; [

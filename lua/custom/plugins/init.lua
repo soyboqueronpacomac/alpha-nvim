@@ -4,14 +4,21 @@ return {
   "tpope/vim-repeat",
   -- Lazy
   {
-    "vague2k/vague.nvim",
+    "catppuccin/nvim",
+    name = "catppuccin",
     opts = {},
     lazy = false,
     priority = 100,
     config = function(_, opts)
-      require("vague").setup(opts)
-      vim.cmd.colorscheme("vague")
+      require("catppuccin").setup(opts)
+      vim.cmd.colorscheme("catppuccin")
     end,
+  },
+  {
+    "catgoose/nvim-colorizer.lua",
+    event = "BufReadPre",
+    opts = { -- set to setup table
+    },
   },
   {
     "direnv/direnv.vim",

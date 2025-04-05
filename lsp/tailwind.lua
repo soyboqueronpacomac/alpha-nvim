@@ -96,5 +96,4 @@ return {
     "postcss.config.ts",
     "vite.config.js"
   },
-  capabilities = require("blink.cmp").get_lsp_capabilities(),
 }

@@ -11,7 +11,6 @@ return {
     "selene.yml",
     ".git",
   },
-  capabilities = require("blink.cmp").get_lsp_capabilities(),
   filetypes = { "lua" },
   settings = {
     Lua = {

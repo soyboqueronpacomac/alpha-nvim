@@ -25,9 +25,18 @@ return {
         },
         {
           function()
+            return require("laravel").app("dev_command"):hostname()
+          end,
+          icon = { " ", color = { fg = "#8FBC8F" } },
+          cond = function()
+            return require("laravel").app("dev_command"):isRunning()
+          end,
+        },
+        {
+          function()
             return #(require("laravel").app("dump_server"):unseenRecords())
           end,
-          icon = {"󰱧 ", color = { fg = "#FFCC66" }},
+          icon = { "󰱧 ", color = { fg = "#FFCC66" } },
           cond = function()
             return require("laravel").app("dump_server"):isRunning()
           end,

@@ -18,14 +18,7 @@ return {
       ft = { "markdown", "Avante" },
     },
   },
-  keys = {
-    {
-      "<leader>ai",
-      function()
-        require("avante").current.sidebar.file_selector:add_current_buffer()
-      end,
-    },
-  },
+  keys = {},
   opts = vim.tbl_extend("force", {
     provider = "copilot",
     file_selector = {

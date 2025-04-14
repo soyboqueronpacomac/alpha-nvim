@@ -45,11 +45,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1743836053,
-        "narHash": "sha256-YlqmYys7C/rim8a8HYRMGg0CsHVjSgUAlhZItFKIRys=",
+        "lastModified": 1744567819,
+        "narHash": "sha256-oP8j/emKPQ6X5MPCwS5Qdvm3QvB8Hs736kuw+fJQ7gk=",
         "owner": "ravitemer",
         "repo": "mcp-hub",
-        "rev": "d6651aa3240407eb671fdd2ad5f876e757542e72",
+        "rev": "e16c6918f9e6b6ecafabdbcccb63d0ad0f955d88",
         "type": "github"
       },
       "original": {
@@ -60,11 +60,11 @@
     },
     "nixCats": {
       "locked": {
-        "lastModified": 1743813212,
-        "narHash": "sha256-zGOCFAPS2MhrLCVuxGN84hurNJfeyW8IWcQ2Fk3FXXA=",
+        "lastModified": 1744569223,
+        "narHash": "sha256-1836dCNDUUyGE5FEvCPhegZizTdNDDtn47lXWNf7d8s=",
         "owner": "BirdeeHub",
         "repo": "nixCats-nvim",
-        "rev": "939881a6126c5b03673f9eab0b00854c92698c01",
+        "rev": "712886c4c101bc4c7d450e34308cf247d359984a",
         "type": "github"
       },
       "original": {
@@ -75,11 +75,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1743689281,
-        "narHash": "sha256-y7Hg5lwWhEOgflEHRfzSH96BOt26LaYfrYWzZ+VoVdg=",
+        "lastModified": 1744536153,
+        "narHash": "sha256-awS2zRgF4uTwrOKwwiJcByDzDOdo3Q1rPZbiHQg/N38=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "2bfc080955153be0be56724be6fa5477b4eefabb",
+        "rev": "18dd725c29603f582cf1900e0d25f9f1063dbf11",
         "type": "github"
       },
       "original": {
@@ -91,11 +91,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1743703532,
-        "narHash": "sha256-s1KLDALEeqy+ttrvqV3jx9mBZEvmthQErTVOAzbjHZs=",
+        "lastModified": 1744440957,
+        "narHash": "sha256-FHlSkNqFmPxPJvy+6fNLaNeWnF1lZSgqVCl/eWaJRc4=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "bdb91860de2f719b57eef819b5617762f7120c70",
+        "rev": "26d499fc9f1d567283d5d56fcf367edd815dba1d",
         "type": "github"
       },
       "original": {
@@ -108,11 +108,11 @@
     "phpactor-laravel": {
       "flake": false,
       "locked": {
-        "lastModified": 1740308553,
-        "narHash": "sha256-BPGJKpNEYtJ7mFZ1anNjeq431jtmPqwHb0B2tEPXYTg=",
+        "lastModified": 1744481407,
+        "narHash": "sha256-FAe1ECEdqilWxvKYgjvH79cMHYZpMklvG1oFn0qJMNE=",
         "owner": "adalessa",
         "repo": "phpactor",
-        "rev": "871fb4cc07cd17c83093045e579a7c640b1a9d1c",
+        "rev": "49d345a320148c13f1e78f6701a04f845a7509d8",
         "type": "github"
       },
       "original": {
@@ -157,11 +157,11 @@
     "plugins-mcphub": {
       "flake": false,
       "locked": {
-        "lastModified": 1743770992,
-        "narHash": "sha256-41+s07aLKsJnRSG4Wwm3wLrlLhLbsEd2UPu7EHnRdOg=",
+        "lastModified": 1744596811,
+        "narHash": "sha256-QLFzXDwvMzMN58PvhkpTO/0uaiKQuexNVxbTt4oTgag=",
         "owner": "ravitemer",
         "repo": "mcphub.nvim",
-        "rev": "339a8c338dca121126d363d483a0d806b92952ba",
+        "rev": "57c5d3078241533210332bead9cdf8e56645be6f",
         "type": "github"
       },
       "original": {
@@ -173,11 +173,11 @@
     "plugins-menu": {
       "flake": false,
       "locked": {
-        "lastModified": 1743413146,
-        "narHash": "sha256-nTLZmszKGS99xBe6Y3Kvb74MMmLTu/9iIqrzeSPKtoE=",
+        "lastModified": 1744566899,
+        "narHash": "sha256-VJsUyyNBdvNU8AdxrmwVyYxSLixRbj4tX4trI6sruns=",
         "owner": "nvzone",
         "repo": "menu",
-        "rev": "ce1d8b5fc980edc388cd0da0884cacea25dcc6c5",
+        "rev": "8adb036ec34c679050913864cbc98cc64eb91f6c",
         "type": "github"
       },
       "original": {
@@ -205,11 +205,11 @@
     "plugins-php-lsp-utils": {
       "flake": false,
       "locked": {
-        "lastModified": 1696425701,
-        "narHash": "sha256-SDIuh0cngigs14V5MBPU+oCxyqaO5MgbEHzRfscz/is=",
+        "lastModified": 1744612476,
+        "narHash": "sha256-fNtlsTwSUJ69cXOpjMIxD7sZdVgn+dMHdhrgn7VcuV8=",
         "owner": "adalessa",
         "repo": "php-lsp-utils",
-        "rev": "650e4fefd7f22d6b1b075d14aac666d008679c88",
+        "rev": "02ce97a78fe886b7fc27242086034bf3be562f6a",
         "type": "github"
       },
       "original": {
@@ -237,11 +237,11 @@
     "plugins-volt": {
       "flake": false,
       "locked": {
-        "lastModified": 1740276243,
-        "narHash": "sha256-uhNPJfqq28iAGSBEDobQgNuLNThwkMqpXgRO27eTtVI=",
+        "lastModified": 1744335032,
+        "narHash": "sha256-6zbcJAY1kH5SyHw1J2GZEFvD8iJvkhBDwMCnIfW1olc=",
         "owner": "nvzone",
         "repo": "volt",
-        "rev": "21a2351697abfed26d4469b88d3ab124d55a1b3f",
+        "rev": "c45d5f48da8e802e608b5c6da471ca4d84276dfb",
         "type": "github"
       },
       "original": {

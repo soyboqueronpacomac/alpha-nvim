@@ -35,6 +35,11 @@ function M.pick(opts)
         local parser = parsers.get_parser(item.bufnr)
         local tree = parser:parse()[1]
 
+        if not query then
+          vim.notify("No query found", vim.log.levels.ERROR)
+          return
+        end
+
         for id, node in query:iter_captures(tree:root(), item.bufnr) do
           if query.captures[id] == "mutation" then
             table.insert(elements, {

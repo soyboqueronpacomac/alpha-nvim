@@ -30,7 +30,7 @@ return {
     },
     ["php_code_sniffer.enabled"] = false,
 
-    ["language_server_phpstan.enabled"] = true,
+    ["language_server_phpstan.enabled"] = false,
     ["language_server_phpstan.level"] = "5",
     ["language_server_phpstan.bin"] = "%project_root%/vendor/bin/phpstan",
     ["language_server_phpstan.mem_limit"] = "2048M",

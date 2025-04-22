@@ -10,18 +10,6 @@
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };
 
-    mcp-hub = {
-      url = "github:ravitemer/mcp-hub";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
-
-    plugins-mcphub = {
-      url = "github:ravitemer/mcphub.nvim";
-      flake = false;
-    };
-
     blade-treesitter = {
       url = "github:EmranMR/tree-sitter-blade";
       flake = false;
@@ -173,7 +161,6 @@
               emmet-language-server
             ];
             ai = [
-              inputs.mcp-hub.packages.${pkgs.system}.default
             ];
             general = with pkgs; [
               uv
@@ -244,7 +231,6 @@
               nui-nvim
               plenary-nvim
               render-markdown-nvim
-              pkgs.neovimPlugins.mcphub
             ];
 
             laravel = with pkgs.vimPlugins; [

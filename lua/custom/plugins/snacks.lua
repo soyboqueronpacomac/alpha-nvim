@@ -87,7 +87,7 @@ return {
       desc = "Lazygit Current File History",
     },
     {
-      "<leader>gg",
+      "<leader>lg",
       function()
         require("snacks").lazygit()
       end,

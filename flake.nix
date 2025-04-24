@@ -25,6 +25,11 @@
       flake = false;
     };
 
+    "plugins-goose.nvim" = {
+      url = "github:azorng/goose.nvim";
+      flake = false;
+    };
+
     plugins-php-lsp-utils = {
       url = "github:adalessa/php-lsp-utils";
       flake = false;
@@ -231,6 +236,7 @@
               nui-nvim
               plenary-nvim
               render-markdown-nvim
+              pkgs.neovimPlugins.goose-nvim
             ];
 
             laravel = with pkgs.vimPlugins; [

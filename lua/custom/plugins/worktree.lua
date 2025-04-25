@@ -5,7 +5,7 @@ return {
   dependencies = { "nvim-lua/plenary.nvim" },
   keys = {
     {
-      "<leader>gt",
+      "<leader>lt",
       function()
         vim.system(
           { "git", "worktree", "list" },

@@ -24,7 +24,7 @@ local events = vim
   :totable()
 
 return {
-  "epwalsh/obsidian.nvim",
+  "obsidian-nvim/obsidian.nvim",
   enabled = require("nixCatsUtils").enableForCategory("obsidian"),
   version = "*",
   lazy = true,

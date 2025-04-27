@@ -37,10 +37,10 @@ return {
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "ibhagwan/fzf-lua",
   },
   opts = {
     workspaces = vaults,
+    pickers = { name = "snacks.pick" },
   },
   config = function(_, opts)
     require("obsidian").setup(opts)

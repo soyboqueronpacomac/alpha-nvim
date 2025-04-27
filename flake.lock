@@ -96,22 +96,6 @@
         "type": "github"
       }
     },
-    "plugins-goose.nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1745241258,
-        "narHash": "sha256-0FGIcCM7WSfYYLTc2xI4e6eRaoCGDmZYpHbmcwFFVZU=",
-        "owner": "azorng",
-        "repo": "goose.nvim",
-        "rev": "c9bf909cde2add986b7148a6a6424f1cb41d4170",
-        "type": "github"
-      },
-      "original": {
-        "owner": "azorng",
-        "repo": "goose.nvim",
-        "type": "github"
-      }
-    },
     "plugins-laravel.nvim": {
       "flake": false,
       "locked": {
@@ -216,7 +200,6 @@
         "nixpkgs-stable": "nixpkgs-stable",
         "phpactor-laravel": "phpactor-laravel",
         "plugins-git-worktree.nvim": "plugins-git-worktree.nvim",
-        "plugins-goose.nvim": "plugins-goose.nvim",
         "plugins-laravel.nvim": "plugins-laravel.nvim",
         "plugins-menu": "plugins-menu",
         "plugins-neotest-pest": "plugins-neotest-pest",

@@ -50,10 +50,14 @@ return {
       Today = "ObsidianToday",
       Yesterday = "ObsidianYesterday",
       Tomorrow = "ObsidianTomorrow",
+      New = "ObsidianNew",
     }
 
     vim.api.nvim_create_user_command("ObsidianMenu", function()
       vim.ui.select(vim.tbl_keys(actions), { prompt = "Obsidian Action" }, function(selected)
+        if not selected then
+          return
+        end
         vim.cmd(actions[selected])
       end)
     end, {})

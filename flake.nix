@@ -164,6 +164,7 @@
             ];
             general = with pkgs; [
               uv
+              imagemagick
               gitea
               jq
               lazygit

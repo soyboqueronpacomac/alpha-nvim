@@ -217,6 +217,7 @@
               vim-dispatch
               vim-repeat
               vim-surround
+              which-key-nvim
             ];
 
             fileManager = with pkgs.vimPlugins; [

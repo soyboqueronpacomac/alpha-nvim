@@ -31,3 +31,5 @@ require("nixCatsUtils.lazyCat").setup(nixCats.pawsible({ "allPlugins", "start", 
 }, lazyOptions)
 
 require("tools")
+
+vim.cmd.colorscheme("slytherin")

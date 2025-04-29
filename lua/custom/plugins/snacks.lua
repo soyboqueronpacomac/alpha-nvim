@@ -101,7 +101,7 @@ return {
       desc = "Lazygit Log (cwd)",
     },
     {
-      "<leader>un",
+      "<leader>N",
       function()
         require("snacks").notifier.hide()
       end,
@@ -111,35 +111,35 @@ return {
     -- { "[[",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference",              mode = { "n", "t" } },
 
     {
-      "<leader>pp",
+      "<leader>ff",
       function()
         require("snacks").picker.smart({ multi = { "buffers", "files" } })
       end,
       desc = "Smart Picker",
     },
     {
-      "<leader>pe",
+      "<leader>fb",
       function()
         require("snacks").picker.buffers()
       end,
       desc = "Buffers Picker",
     },
     {
-      "<leader>pg",
+      "<leader>fg",
       function()
         require("snacks").picker.grep()
       end,
       desc = "Grep Picker",
     },
     {
-      "<leader>ph",
+      "<leader>fh",
       function()
         require("snacks").picker.help()
       end,
       desc = "Help Picker",
     },
     {
-      "<leader>ps",
+      "<leader>fs",
       function()
         require("snacks").picker.git_status()
       end,

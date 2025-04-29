@@ -36,7 +36,7 @@ return {
           icon = " ",
           title = "Git Status",
           cmd = "git --no-pager diff --stat -B -M -C",
-          height = 7,
+          height = 10,
         },
         {
           icon = " ",
@@ -46,7 +46,7 @@ return {
           action = function()
             vim.fn.jobstart("gh pr list --web", { detach = true })
           end,
-          height = 5,
+          height = 7,
         },
         {
           title = "Open Issues",
@@ -56,7 +56,7 @@ return {
             vim.fn.jobstart("gh issue list --web", { detach = true })
           end,
           icon = " ",
-          height = 5,
+          height = 7,
         },
       }
       return vim.tbl_map(function(cmd)

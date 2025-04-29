@@ -163,9 +163,10 @@
             ai = [
             ];
             general = with pkgs; [
-              uv
+              dwt1-shell-color-scripts
+              gh
+              git
               imagemagick
-              gitea
               jq
               lazygit
               lua-language-server

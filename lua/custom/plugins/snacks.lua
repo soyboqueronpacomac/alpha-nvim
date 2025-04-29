@@ -118,6 +118,13 @@ return {
       desc = "Smart Picker",
     },
     {
+      "<leader>fd",
+      function()
+        require("snacks").picker.treesitter()
+      end,
+      desc = "Treesitter elements",
+    },
+    {
       "<leader>fb",
       function()
         require("snacks").picker.buffers()

@@ -75,7 +75,5 @@ return { -- Highlight, edit, and navigate code
 
       return "blade"
     end } })
-
-    vim.keymap.set("n", "<leader>pd", require("snacks").picker.treesitter, {})
   end,
 }

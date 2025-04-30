@@ -109,14 +109,6 @@ return {
     },
     -- { "]]",         function() Snacks.words.jump(vim.v.count1) end,  desc = "Next Reference",              mode = { "n", "t" } },
     -- { "[[",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference",              mode = { "n", "t" } },
-
-    {
-      "<leader>ff",
-      function()
-        require("snacks").picker.smart({ multi = { "buffers", "files" } })
-      end,
-      desc = "Smart Picker",
-    },
     {
       "<leader>fd",
       function()
@@ -158,6 +150,20 @@ return {
         require("snacks").picker.command_history()
       end,
       desc = "Command history picker",
+    },
+    {
+      "<leader>fi",
+      function()
+        require("snacks").picker.icons()
+      end,
+      desc = "Icons Picker",
+    },
+    {
+      "<F6>",
+      function()
+        require("snacks").explorer()
+      end,
+      desc = "File Explorer",
     },
   },
   ---@type snacks.Config
@@ -204,6 +210,10 @@ return {
         Snacks.toggle.inlay_hints():map("<leader>uh")
         Snacks.toggle.indent():map("<leader>ug")
         Snacks.toggle.dim():map("<leader>uD")
+
+        vim.keymap.set("n", "<leader>ff", function()
+          require("snacks").picker.smart({ multi = { "buffers", "files" } })
+        end, { desc = "Find files" })
       end,
     })
   end,

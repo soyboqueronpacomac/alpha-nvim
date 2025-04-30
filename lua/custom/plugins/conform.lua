@@ -23,7 +23,7 @@ return {
   end,
   keys = {
     {
-      "<leader>f",
+      "<leader>vf",
       function()
         require("conform").format({ lsp_format = "fallback" })
       end,

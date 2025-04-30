@@ -20,7 +20,7 @@ local function paste_and_restore_clipboard()
 end
 
 -- Keymap for replace action
-vim.keymap.set({ "n" }, "<leader>r", ":set opfunc=AlphaReplace<CR>g@", { desc = "allow replace action", silent = true })
+vim.keymap.set({ "n" }, "\r", ":set opfunc=AlphaReplace<CR>g@", { desc = "allow replace action", silent = true })
 
 -- Keymap for pasting and restoring clipboard
 vim.keymap.set({ "n" }, "<leader>p", paste_and_restore_clipboard, { desc = "paste and restore clipboard" })

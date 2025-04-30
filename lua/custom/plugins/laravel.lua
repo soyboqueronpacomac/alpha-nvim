@@ -17,6 +17,7 @@ return {
     { "<leader>ll", "<cmd>Laravel<cr>" },
     { "<c-g>", "<cmd>Laravel view_finder<cr>" },
     { "<leader>la", "<cmd>Laravel art<cr>" },
+    { "<leader>lt", "<cmd>Laravel actions<cr>" },
     { "<leader>lr", "<cmd>Laravel routes<cr>" },
     { "<leader>lh", "<cmd>Laravel art docs<cr>" },
     { "<leader>lm", "<cmd>Laravel make<cr>" },
@@ -54,5 +55,4 @@ return {
       },
     },
   },
-  config = true,
 }

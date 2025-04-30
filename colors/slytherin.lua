@@ -60,7 +60,7 @@ set(0, "@punctuation.special",   { fg = sly.yellow })
 
 set(0, "@keyword",        { fg = sly.green, bold = true })
 set(0, "@keyword.function", { fg = sly.green_bright, bold = true })
-set(0, "@keyword.return", { fg = sly.green })
+set(0, "@keyword.return", { fg = sly.magenta })
 
 set(0, "@tag",            { fg = sly.blue })
 set(0, "@tag.attribute",  { fg = sly.green })

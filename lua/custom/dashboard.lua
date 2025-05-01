@@ -31,6 +31,7 @@ return {
     },
     function()
       local in_git = Snacks.git.get_root() ~= nil
+      local gh_installed = vim.fn.executable("gh") == 1
       local cmds = {
         {
           icon = " ",
@@ -63,7 +64,7 @@ return {
         return vim.tbl_extend("force", {
           pane = 2,
           section = "terminal",
-          enabled = in_git,
+          enabled = in_git and gh_installed,
           padding = 1,
           ttl = 5 * 60,
           indent = 3,

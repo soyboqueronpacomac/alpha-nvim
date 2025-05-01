@@ -1,9 +1,9 @@
 vim.keymap.set({ "n" }, "<leader>vn", function()
   vim.diagnostic.jump({ count = 1, float = true })
-end, {})
+end, { desc = "Jump to next diagnostic" })
 vim.keymap.set({ "n" }, "<leader>vp", function()
   vim.diagnostic.jump({ count = -1, float = true })
-end, {})
+end, { desc = "Jump to previous diagnostic" })
 
 vim.diagnostic.config({
   signs = {

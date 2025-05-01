@@ -16,7 +16,9 @@ return {
       ft = { "markdown", "Avante" },
     },
   },
-  keys = {},
+  keys = {
+    { "<leader>aa", "<cmd>Avante ask", desc = "Avante Ask" },
+  },
   opts = vim.tbl_extend("force", {
     provider = "copilot",
     file_selector = {
@@ -26,48 +28,11 @@ return {
       enable_claude_text_editor_tool_mode = true,
     },
     custom_tools = {
-      {
-        name = "run_behat_test", -- Unique name for the tool
-        description = "Run behat tests and return results", -- Description shown to AI
-        command = "make exec-behat", -- Shell command to execute
-        param = { -- Input parameters (optional)
-          type = "table",
-          fields = {
-            {
-              name = "target",
-              description = "path to the feature test file for specific test add the :<line> of the test",
-              type = "string",
-              optional = false,
-            },
-          },
-        },
-        returns = { -- Expected return values
-          {
-            name = "result",
-            description = "Result of the test",
-            type = "string",
-          },
-          {
-            name = "error",
-            description = "Error message if the test was not successful",
-            type = "string",
-            optional = true,
-          },
-        },
-        func = function(params, on_log, on_complete) -- Custom function to execute
-          local target = params.target
-          return vim.fn.system(string.format("make exec-behat test=%s", target))
-        end,
-      },
+      require("custom.avante.behat_tool"),
     },
-    -- copilot = {
-    --   model = "claude-3.7-sonnet",
-    --   temperature = 0,
-    --   max_tokens = 8192,
-    -- },
   }, require("nixCatsUtils").getCatOrDefault("avanteOpts", {}) or {}),
   config = function(_, o)
     require("avante").setup(o)
-    require("custom.avante-recipes")
+    -- require("custom.avante.recipes")
   end,
 }

@@ -25,6 +25,7 @@ return {
   },
   {
     "direnv/direnv.vim",
+    enabled = vim.fn.executable("direnv") == 1,
     init = function()
       vim.g.direnv_silent_load = 1
     end,

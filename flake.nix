@@ -156,14 +156,15 @@
               python312Packages.python-lsp-server
             ];
             javascript = with pkgs; [
+              nodejs
               typescript-language-server
               tailwindcss-language-server
               emmet-language-server
             ];
-            ai = [
+            ai = with pkgs;[
+              nodejs
             ];
             general = with pkgs; [
-              dwt1-shell-color-scripts
               gh
               git
               imagemagick

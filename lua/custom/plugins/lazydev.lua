@@ -8,6 +8,8 @@ return {
       { path = "${3rd}/luv/library", words = { "vim%.uv" } },
       { path = "${3rd}/love2d/library", words = { "love" } },
       "nvim-dap-ui",
+      "snacks.nvim",
+      "lazy.nvim",
     },
   },
 }

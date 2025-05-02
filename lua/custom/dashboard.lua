@@ -91,6 +91,15 @@ return {
         }, cmd)
       end, cmds)
     end,
+    {
+      key = "t",
+      enabled = function()
+        return vim.system({ "git", "rev-parse", "--is-bare-repository" }):wait().stdout == "true\n"
+      end,
+      desc = "Worktree",
+      icon = " ",
+      action = "<leader>gt",
+    },
     { section = "startup" },
   },
 }

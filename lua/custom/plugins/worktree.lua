@@ -64,9 +64,7 @@ return {
                   { item.value.branch, "@string" },
                 }
               end,
-              layout = {
-                preview = false,
-              },
+              layout = "select",
               confirm = function(picker, item)
                 picker:close()
                 if item then

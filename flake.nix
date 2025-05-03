@@ -165,6 +165,7 @@
               nodejs
             ];
             general = with pkgs; [
+              fd
               gh
               git
               imagemagick

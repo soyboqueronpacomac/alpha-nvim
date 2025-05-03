@@ -173,6 +173,7 @@ return {
     -- refer to the configuration section below
     bigfile = { enabled = true },
     dashboard = require("custom.dashboard"),
+    explorer = {enabled = true},
     indent = { enabled = true },
     input = { enabled = true },
     image = { enabled = true },

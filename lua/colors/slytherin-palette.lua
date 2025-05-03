@@ -3,6 +3,7 @@ local slytherin = {
   fg         = "#E0E0E0",
   green      = "#2E8B57",
   green_bright = "#3CB371",
+  black      = "#1C1C1C",
   gray       = "#404860",
   red        = "#AA4E4E",
   yellow     = "#BFA750",

@@ -27,6 +27,14 @@ return {
     behaviour = {
       enable_claude_text_editor_tool_mode = true,
     },
+    vendors = {
+      qwen = {
+        __inherited_from = "openai",
+        endpoint = "http://10.27.22.20:11434/v1",
+        api_key_name = "",
+        model = "qwen3",
+      },
+    },
     custom_tools = {
       require("custom.avante.behat_tool"),
     },

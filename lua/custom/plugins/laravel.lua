@@ -28,7 +28,7 @@ return {
     {
       "gf",
       function()
-        if require("laravel").app("gf").cursor_on_resource() then
+        if require("laravel").app("gf").cursorOnResource() then
           return "<cmd>Laravel gf<cr>"
         else
           return "gf"

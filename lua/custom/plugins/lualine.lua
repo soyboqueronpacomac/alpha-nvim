@@ -1,10 +1,14 @@
+---@diagnostic disable: param-type-mismatch
 local y_section = {}
 
 if require("nixCatsUtils").enableForCategory("laravel") then
   y_section = {
     {
       function()
-        return require("laravel").app("status"):get("laravel")
+        local ok, status = pcall(require("laravel").app, "status")
+        if ok then
+          return status:get("laravel")
+        end
       end,
       icon = { " ", color = { fg = "#F55247" } },
       cond = function()
@@ -13,29 +17,53 @@ if require("nixCatsUtils").enableForCategory("laravel") then
     },
     {
       function()
-        return require("laravel").app("status"):get("php")
+        local ok, status = pcall(require("laravel").app, "status")
+        if ok then
+          return status:get("php")
+        end
+        return nil
       end,
       icon = { " ", color = { fg = "#AEB2D5" } },
       cond = function()
-        return require("laravel").app("status"):has("php")
+        local ok, status = pcall(require("laravel").app, "status")
+        if ok then
+          return status:has("php")
+        end
+        return false
       end,
     },
     {
       function()
-        return require("laravel").app("dev_command"):hostname()
+        local ok, dev_command = pcall(require("laravel").app, "dev_command")
+        if ok then
+          return dev_command:hostname()
+        end
+        return nil
       end,
       icon = { " ", color = { fg = "#8FBC8F" } },
       cond = function()
-        return require("laravel").app("dev_command"):isRunning()
+        local ok, dev_command = pcall(require("laravel").app, "dev_command")
+        if ok then
+          return dev_command:isRunning()
+        end
+        return false
       end,
     },
     {
       function()
-        return #(require("laravel").app("dump_server"):unseenRecords())
+        local ok, dump_server = pcall(require("laravel").app, "dump_server")
+        if ok then
+          return #(dump_server:unseenRecords())
+        end
+        return 0
       end,
       icon = { "󰱧 ", color = { fg = "#FFCC66" } },
       cond = function()
-        return require("laravel").app("dump_server"):isRunning()
+        local ok, dump_server = pcall(require("laravel").app, "dump_server")
+        if ok then
+          return dump_server:isRunning()
+        end
+        return false
       end,
     },
   }

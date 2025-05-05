@@ -12,7 +12,11 @@ if require("nixCatsUtils").enableForCategory("laravel") then
       end,
       icon = { " ", color = { fg = "#F55247" } },
       cond = function()
-        return require("laravel").app("status"):has("laravel")
+        local ok, status = pcall(require("laravel").app, "status")
+        if ok then
+          return require("laravel").app("status"):has("laravel")
+        end
+        return false
       end,
     },
     {

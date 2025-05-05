@@ -404,6 +404,7 @@
               fileManager = true;
               general = true;
               go = true;
+              python = true;
               laravel = false;
               makeRunner = true;
               obsidian = true;

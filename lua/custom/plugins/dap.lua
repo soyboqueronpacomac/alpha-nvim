@@ -1,60 +1,68 @@
-local dapOpts = {}
-if require("nixCatsUtils").enableForCategory("symfony") then
-  dapOpts = {
-    adapters = { executables = {
-      php = {
-        command = "php-debug-adapter",
-      },
-    } },
-    configurations = {
-      php = {
-        {
-          type = "php",
-          request = "launch",
-          name = "Symfony",
-          port = 9003,
-          pathMappings = {
-            ["/app"] = "${workspaceFolder}",
-          },
-        },
-      },
-    },
-  }
-end
-
-if require("nixCatsUtils").enableForCategory("laravel") then
-  dapOpts = {
-    adapters = { executables = {
-      php = {
-        command = "php-debug-adapter",
-      },
-    } },
-    configurations = {
-      php = {
-        {
-          type = "php",
-          request = "launch",
-          name = "Laravel",
-          port = 9003,
-        },
-        {
-          type = "php",
-          request = "launch",
-          name = "Laravel Sail",
-          port = 9003,
-          pathMappings = {
-            ["/var/www/html"] = "${workspaceFolder}",
-          },
-        },
-      },
-    },
-  }
-end
-
 return {
   "rcarriga/nvim-dap-ui",
   dependencies = {
-    { "mfussenegger/nvim-dap", opts = dapOpts },
+    {
+      "mfussenegger/nvim-dap",
+      config = function()
+        local dap = require("dap")
+
+        vim.fn.sign_define("DapBreakpoint", {
+          text = " ",
+          texthl = "DiagnosticSignError",
+        })
+        vim.fn.sign_define("DapBreakpointCondition", {
+          text = " ",
+          texthl = "DiagnosticSignWarn",
+        })
+        vim.fn.sign_define("DapStopped", {
+          text = " ",
+          texthl = "DiagnosticSignInfo",
+        })
+
+        if require("nixCatsUtils").enableForCategory("symfony") then
+          dap.adapters.php = {
+            type = "executable",
+            command = "php-debug-adapter",
+          }
+
+          dap.configurations.php = {
+            {
+              type = "php",
+              request = "launch",
+              name = "Symfony",
+              port = 9003,
+              pathMappings = {
+                ["/app"] = "${workspaceFolder}",
+              },
+            },
+          }
+        end
+
+        if require("nixCatsUtils").enableForCategory("laravel") then
+          dap.adapters.php = {
+            type = "executable",
+            command = "php-debug-adapter",
+          }
+          dap.configurations.php = {
+            {
+              type = "php",
+              request = "launch",
+              name = "Laravel",
+              port = 9003,
+            },
+            {
+              type = "php",
+              request = "launch",
+              name = "Laravel Sail",
+              port = 9003,
+              pathMappings = {
+                ["/var/www/html"] = "${workspaceFolder}",
+              },
+            },
+          }
+        end
+      end,
+    },
     "nvim-neotest/nvim-nio",
   },
   keys = {
@@ -101,7 +109,7 @@ return {
       end,
     },
     {
-      "<leader>gc",
+      "<leader>dgc",
       function()
         vim.ui.input({ prompt = "Condition: " }, function(condition)
           if condition == "" then
@@ -112,7 +120,7 @@ return {
       end,
     },
     {
-      "<leader>g?",
+      "<leader>dg?",
       function()
         vim.ui.input({ prompt = "Log: " }, function(log)
           if log == "" then
@@ -123,7 +131,7 @@ return {
       end,
     },
     {
-      "<leader>x",
+      "<leader>dx",
       function()
         require("dap").terminate()
         require("dapui").close({})
@@ -132,11 +140,12 @@ return {
     },
   },
   opts = {},
-  confi = function(_, opts)
-    require("dapui").setup(opts)
+  config = function(_, opts)
+    local dap, dapui = require("dap"), require("dapui")
+    dapui.setup(opts)
 
-    require("dap").listeners.after.event_initialized["dapui_config"] = function()
-      require("dapui").open({})
+    dap.listeners.after.event_initialized["dapui_config"] = function()
+      dapui.open()
     end
   end,
 }

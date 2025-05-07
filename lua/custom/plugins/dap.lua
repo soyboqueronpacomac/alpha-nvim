@@ -18,6 +18,10 @@ return {
           text = " ",
           texthl = "DiagnosticSignInfo",
         })
+        vim.fn.sign_define("DapLogPoint", {
+          text = " ",
+          texthl = "DiagnosticSignInfo",
+        })
 
         if require("nixCatsUtils").enableForCategory("symfony") then
           dap.adapters.php = {
@@ -71,42 +75,49 @@ return {
       function()
         require("dap").continue()
       end,
+      desc = "Start| Continue debugging",
     },
     {
       "<leader>dp",
       function()
         require("dap").toggle_breakpoint()
       end,
+      desc = "Toggle breakpoint",
     },
     {
       "<leader>dl",
       function()
         require("dap").step_into()
       end,
+      desc = "Step into",
     },
     {
       "<leader>dj",
       function()
         require("dap").step_over()
       end,
+      desc = "Step over",
     },
     {
       "<leader>dk",
       function()
         require("dap").step_out()
       end,
+      desc = "Step out",
     },
     {
       "<leader>dh",
       function()
         require("dapui").eval()
       end,
+      desc = "Evaluate expression",
     },
     {
       "<leader>dc",
       function()
         require("dap").run_to_cursor()
       end,
+      desc = "Run to cursor",
     },
     {
       "<leader>dgc",
@@ -118,6 +129,7 @@ return {
           require("dap").set_breakpoint(condition)
         end)
       end,
+      desc = "Set conditional breakpoint",
     },
     {
       "<leader>dg?",
@@ -129,6 +141,7 @@ return {
           require("dap").set_breakpoint(nil, nil, log)
         end)
       end,
+      desc = "Set log point",
     },
     {
       "<leader>dx",
@@ -137,6 +150,7 @@ return {
         require("dapui").close({})
         require("dap").clear_breakpoints()
       end,
+      desc = "Terminate debug session",
     },
   },
   opts = {},

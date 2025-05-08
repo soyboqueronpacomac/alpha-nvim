@@ -19,7 +19,7 @@ return {
       },
       -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
       diagnostics = {
-        globals = { "nixCats" },
+        globals = { "nixCats", "dd", "bt" },
         disable = { "missing-fields" },
       },
     },

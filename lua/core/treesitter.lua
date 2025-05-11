@@ -68,12 +68,16 @@ return { -- Highlight, edit, and navigate code
       },
       filetype = "blade",
     }
-    vim.filetype.add({ pattern = { [".*%.blade%.php"] = function(path, bufnr, ext)
-      if path:match("livewire") then
-        return "php"
-      end
+    vim.filetype.add({
+      pattern = {
+        [".*%.blade%.php"] = function(path, bufnr, ext)
+          if path:match("livewire") then
+            return "php"
+          end
 
-      return "blade"
-    end } })
+          return "blade"
+        end,
+      },
+    })
   end,
 }

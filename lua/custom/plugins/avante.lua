@@ -27,14 +27,6 @@ return {
     behaviour = {
       enable_claude_text_editor_tool_mode = true,
     },
-    -- vendors = {
-    --   ollama = {
-    --     __inherited_from = "openai",
-    --     endpoint = "http://10.27.22.20:11434/v1",
-    --     api_key_name = "",
-    --     model = "qwen2.5-coder",
-    --   },
-    -- },
     custom_tools = require("custom.avante.tools"),
   }, require("nixCatsUtils").getCatOrDefault("avanteOpts", {}) or {}),
 }

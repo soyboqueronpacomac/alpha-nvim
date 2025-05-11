@@ -7,11 +7,13 @@ vim.g.colors_name = "slytherin"
 
 local set = vim.api.nvim_set_hl
 
+
 -- Basic UI
 set(0, "Normal", { fg = sly.fg, bg = sly.black })
 set(0, "CursorLine", { bg = sly.cursorline })
 set(0, "Visual", { bg = sly.selection })
 set(0, "Comment", { fg = sly.comment, italic = true })
+set(0, "RenderMarkdownCode", {bg = sly.black})
 
 -- Syntax
 set(0, "Identifier", { fg = sly.fg })

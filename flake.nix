@@ -202,6 +202,7 @@
               mini-icons
               mini-pick
               neotest
+              neotest-plenary
               nvim-autopairs
               nvim-colorizer-lua
               nvim-dap-ui

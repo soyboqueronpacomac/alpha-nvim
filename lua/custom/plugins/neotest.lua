@@ -3,6 +3,7 @@ local dependencies = {
   "nvim-lua/plenary.nvim",
   "antoinemadec/FixCursorHold.nvim",
   "nvim-treesitter/nvim-treesitter",
+  "nvim-neotest/neotest-plenary",
 }
 
 if require("nixCatsUtils").enableForCategory("laravel") then
@@ -73,7 +74,9 @@ return {
     },
   },
   config = function()
-    local adapters = {}
+    local adapters = {
+      require("neotest-plenary"),
+    }
     if require("nixCatsUtils").enableForCategory("laravel") then
       table.insert(adapters, require("neotest-pest"))
     end
@@ -95,6 +98,11 @@ return {
 
     ---@diagnostic disable-next-line: missing-fields
     require("neotest").setup({
+      projects = {
+        ["~/code/plugins/laravel"] = require("neotest-plenary")({
+          min_init = "~/code/plugins/laravel.nvim/tests/init.lua",
+        }),
+      },
       adapters = adapters,
     })
   end,

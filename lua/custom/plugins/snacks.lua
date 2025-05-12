@@ -2,178 +2,11 @@ return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
-  keys = {
-    {
-      "<c-\\>",
-      function()
-        require("snacks").terminal()
-      end,
-      desc = "Toggle a terminal",
-      mode = { "n", "t" },
-    },
-
-    {
-      "<leader>z",
-      function()
-        require("snacks").zen()
-      end,
-      desc = "Toggle Zen Mode",
-    },
-    {
-      "<leader>Z",
-      function()
-        require("snacks").zen.zoom()
-      end,
-      desc = "Toggle Zoom",
-    },
-
-    {
-      "<leader>.",
-      function()
-        require("snacks").scratch()
-      end,
-      desc = "Toggle Scratch Buffer",
-    },
-    {
-      "<leader>S",
-      function()
-        require("snacks").scratch.select()
-      end,
-      desc = "Select Scratch Buffer",
-    },
-
-    {
-      "<leader>n",
-      function()
-        require("snacks").notifier.show_history()
-      end,
-      desc = "Notification History",
-    },
-    {
-      "<leader>bd",
-      function()
-        require("snacks").bufdelete()
-      end,
-      desc = "Delete Buffer",
-    },
-    {
-      "<leader>cR",
-      function()
-        require("snacks").rename.rename_file()
-      end,
-      desc = "Rename File",
-    },
-
-    {
-      "<leader>gB",
-      function()
-        require("snacks").gitbrowse()
-      end,
-      desc = "Git Browse",
-      mode = { "n", "v" },
-    },
-    {
-      "<leader>gb",
-      function()
-        require("snacks").git.blame_line()
-      end,
-      desc = "Git Blame Line",
-    },
-    {
-      "<leader>gf",
-      function()
-        require("snacks").lazygit.log_file()
-      end,
-      desc = "Lazygit Current File History",
-    },
-    {
-      "<leader>gg",
-      function()
-        require("snacks").lazygit()
-      end,
-      desc = "Lazygit",
-    },
-    {
-      "<leader>gl",
-      function()
-        require("snacks").lazygit.log()
-      end,
-      desc = "Lazygit Log (cwd)",
-    },
-    {
-      "<leader>N",
-      function()
-        require("snacks").notifier.hide()
-      end,
-      desc = "Dismiss All Notifications",
-    },
-    -- { "]]",         function() Snacks.words.jump(vim.v.count1) end,  desc = "Next Reference",              mode = { "n", "t" } },
-    -- { "[[",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference",              mode = { "n", "t" } },
-    {
-      "<leader>fd",
-      function()
-        require("snacks").picker.treesitter()
-      end,
-      desc = "Treesitter elements",
-    },
-    {
-      "<leader>fb",
-      function()
-        require("snacks").picker.buffers()
-      end,
-      desc = "Buffers Picker",
-    },
-    {
-      "<leader>fg",
-      function()
-        require("snacks").picker.grep()
-      end,
-      desc = "Grep Picker",
-    },
-    {
-      "<leader>fh",
-      function()
-        require("snacks").picker.help()
-      end,
-      desc = "Help Picker",
-    },
-    {
-      "<leader>fs",
-      function()
-        require("snacks").picker.git_status()
-      end,
-      desc = "Git Status Picker",
-    },
-    {
-      "<leader>:",
-      function()
-        require("snacks").picker.command_history()
-      end,
-      desc = "Command history picker",
-    },
-    {
-      "<leader>fi",
-      function()
-        require("snacks").picker.icons()
-      end,
-      desc = "Icons Picker",
-    },
-    {
-      "<F6>",
-      function()
-        require("snacks").explorer()
-      end,
-      desc = "File Explorer",
-    },
-  },
   ---@type snacks.Config
   opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
     bigfile = { enabled = true },
     dashboard = require("custom.dashboard"),
-    explorer = {enabled = true},
+    explorer = { enabled = true },
     indent = { enabled = true },
     input = { enabled = true },
     image = { enabled = true },
@@ -191,6 +24,8 @@ return {
       pattern = "VeryLazy",
       callback = function()
         _G.dd = function(...)
+          -- TODO replace this with a better to get the caller and parse the nix store
+          -- since having the path is annoying
           Snacks.debug.inspect(...)
         end
         _G.bt = function()
@@ -211,10 +46,46 @@ return {
         Snacks.toggle.inlay_hints():map("<leader>uh")
         Snacks.toggle.indent():map("<leader>ug")
         Snacks.toggle.dim():map("<leader>uD")
+        Snacks.toggle.zen():map("<leader>uz")
 
-        vim.keymap.set("n", "<leader>ff", function()
-          require("snacks").picker.smart({ multi = { "buffers", "files" } })
-        end, { desc = "Find files" })
+        local map = function(keys, func, desc, modes)
+          vim.keymap.set(modes or { "n" }, keys, func, { desc = desc })
+        end
+
+        -- Pickers
+        map("<leader>ff", function() Snacks.picker.smart({ multi = { "buffers", "files" } }) end, "Find Files")
+        map("<leader>fd", function() Snacks.picker.treesitter() end, "Find Treesitter Nodes")
+        map("<leader>fb", function() Snacks.picker.buffers() end, "Find Buffers")
+        map("<leader>fg", function() Snacks.picker.grep() end, "Find Grep")
+        map("<leader>fh", function() Snacks.picker.grep() end, "Find Help")
+        map("<leader>fs", function() Snacks.picker.git_status() end, "Find Modified Files")
+        map("<leader>:", function() Snacks.picker.command_history() end, "Find Command")
+        map("<leader>fi", function() Snacks.picker.icons() end, "Find Icon")
+        map("<c-y>", function() Snacks.picker.icons() end, "Find Icon", {"i"})
+
+        map("<F6>", function() Snacks.explorer() end, "Explorer", {"n", "i"})
+
+        -- Scratch
+        map("<leader>.", function() Snacks.scratch() end, "Open the scratch buffer")
+        map("<leader>S", function() Snacks.scratch.select() end, "Open the scratch buffer selector")
+
+        -- Misc
+        map("<leader>bd", function() Snacks.bufdelete() end, "Delete buffer")
+        map("<leader>cR", function() Snacks.rename.rename_file() end, "Rename file")
+        map("<c-\\>", function() Snacks.terminal() end, "Toggle terminal", { "n", "t" })
+        map("[[", function() Snacks.words.jump(vim.v.count1) end, "Next Reference")
+        map("]]", function() Snacks.words.jump(-vim.v.count1) end, "Prev Reference")
+
+        -- GIT
+        map("<leader>gB", function() Snacks.gitbrowse() end, "Git Browse", {"n", "v"})
+        map("<leader>gb", function() Snacks.git.blame_line() end, "Git Blame Line", {"n", "v"})
+        map("<leader>gf", function() Snacks.lazygit.log_file() end, "Lazygit Current File History")
+        map("<leader>gg", function() Snacks.lazygit() end, "Lazygit")
+        map("<leader>gl", function() Snacks.lazygit.log() end, "Lazygit Log (cwd)")
+
+        -- Notifications
+        map("<leader>nn", function() Snacks.notifier.show_history() end, "Notification history")
+        map("<leader>nh", function() Snacks.notifier.hide() end, "Notification Dismiss all")
       end,
     })
   end,

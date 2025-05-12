@@ -39,3 +39,6 @@ vim.o.wrap = false
 vim.o.swapfile = false
 vim.o.undofile = true
 vim.o.clipboard = "unnamedplus"
+
+-- Disable php by filetype mappings
+vim.g.no_php_maps = 1

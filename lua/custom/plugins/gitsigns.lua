@@ -18,7 +18,7 @@ return {
         else
           gitsigns.nav_hunk("next")
         end
-      end)
+      end, { desc = "Git Go next hunk" })
 
       map("n", "[c", function()
         if vim.wo.diff then
@@ -26,43 +26,42 @@ return {
         else
           gitsigns.nav_hunk("prev")
         end
-      end)
+      end, { desc = "Git Go prev hunk" })
 
       -- Actions
-      map("n", "<leader>hs", gitsigns.stage_hunk)
-      map("n", "<leader>hr", gitsigns.reset_hunk)
+      map("n", "<leader>hs", gitsigns.stage_hunk, { desc = "Git Stage hunk" })
+      map("n", "<leader>hr", gitsigns.reset_hunk, { desc = "Git Reset hunk" })
 
       map("v", "<leader>hs", function()
         gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
-      end)
+      end, { desc = "Git Stage hunk" })
 
       map("v", "<leader>hr", function()
         gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
-      end)
+      end, { desc = "Git Reset hunk" })
 
-      map("n", "<leader>hS", gitsigns.stage_buffer)
-      map("n", "<leader>hR", gitsigns.reset_buffer)
-      map("n", "<leader>hp", gitsigns.preview_hunk)
-      map("n", "<leader>hi", gitsigns.preview_hunk_inline)
+      map("n", "<leader>hS", gitsigns.stage_buffer, { desc = "Git Stage Buffer" })
+      map("n", "<leader>hR", gitsigns.reset_buffer, { desc = "Git Reset Buffer" })
+      map("n", "<leader>hp", gitsigns.preview_hunk, { desc = "Git Preview Hunk" })
+      map("n", "<leader>hi", gitsigns.preview_hunk_inline, { desc = "Git Preview Hunk Inline" })
 
       map("n", "<leader>hb", function()
         gitsigns.blame_line({ full = true })
-      end)
+      end, { desc = "Git Blame line" })
 
-      map("n", "<leader>hd", gitsigns.diffthis)
+      map("n", "<leader>hd", gitsigns.diffthis, { desc = "Git Diff This" })
 
       map("n", "<leader>hD", function()
         gitsigns.diffthis("~")
-      end)
+      end, { desc = "Git Diff ~" })
 
       map("n", "<leader>hQ", function()
         gitsigns.setqflist("all")
-      end)
-      map("n", "<leader>hq", gitsigns.setqflist)
+      end, { desc = "Git Send all diff to QuickFix list" })
+      map("n", "<leader>hq", gitsigns.setqflist, { desc = "Git Send hunk diff to QuickFix list" })
 
       -- Toggles
       map("n", "<leader>tb", gitsigns.toggle_current_line_blame)
-      map("n", "<leader>td", gitsigns.toggle_deleted)
       map("n", "<leader>tw", gitsigns.toggle_word_diff)
 
       -- Text object

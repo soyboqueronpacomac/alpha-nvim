@@ -61,11 +61,11 @@ return {
       map("n", "<leader>hq", gitsigns.setqflist, { desc = "Git Send hunk diff to QuickFix list" })
 
       -- Toggles
-      map("n", "<leader>tb", gitsigns.toggle_current_line_blame)
-      map("n", "<leader>tw", gitsigns.toggle_word_diff)
+      map("n", "<leader>tb", gitsigns.toggle_current_line_blame, { desc = "Git Blame line author" })
+      map("n", "<leader>tw", gitsigns.toggle_word_diff, { desc = "Git Toggle word diff" })
 
       -- Text object
-      map({ "o", "x" }, "ih", gitsigns.select_hunk)
+      map({ "o", "x" }, "ih", gitsigns.select_hunk, {desc = "Git text object select hunk"})
     end,
   },
 }

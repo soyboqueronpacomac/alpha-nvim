@@ -235,7 +235,6 @@
               (inputs.nixpkgs-stable.legacyPackages.${pkgs.system}.vimPlugins.copilot-lua)
               nui-nvim
               plenary-nvim
-              render-markdown-nvim
             ];
 
             laravel = with pkgs.vimPlugins; [

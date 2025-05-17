@@ -33,7 +33,7 @@ return {
     "ObsidianMenu",
   },
   keys = {
-    { "<leader>ob", "<cmd> ObsidianMenu<cr>" },
+    { "<leader>ob", "<cmd> ObsidianMenu<cr>", desc = "Obsidian Menu" },
   },
   dependencies = {
     "nvim-lua/plenary.nvim",

@@ -13,7 +13,13 @@ set(0, "Normal", { fg = sly.fg, bg = sly.black })
 set(0, "CursorLine", { bg = sly.cursorline })
 set(0, "Visual", { bg = sly.selection })
 set(0, "Comment", { fg = sly.comment, italic = true })
-set(0, "RenderMarkdownCode", {bg = sly.black})
+
+-- Markdown
+-- set(0, "RenderMarkdownCode", {bg = sly.black})
+set(0, "@markup.heading.1.markdown", { fg = sly.green_bright, bold = true })
+set(0, "@markup.heading.2.markdown", { fg = sly.green, bold = true })
+set(0, "@markup.heading.3.markdown", { fg = sly.green_bright })
+set(0, "@markup.heading.4.markdown", { fg = sly.green })
 
 -- Syntax
 set(0, "Identifier", { fg = sly.fg })

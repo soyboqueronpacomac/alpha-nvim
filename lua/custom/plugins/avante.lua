@@ -4,7 +4,6 @@ return {
   enabled = require("nixCatsUtils").enableForCategory("ai"),
   build = "make",
   dependencies = {
-    "stevearc/dressing.nvim",
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
   },

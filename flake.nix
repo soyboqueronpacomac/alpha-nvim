@@ -161,7 +161,7 @@
               tailwindcss-language-server
               emmet-language-server
             ];
-            ai = with pkgs;[
+            ai = with pkgs; [
               nodejs
             ];
             general = with pkgs; [

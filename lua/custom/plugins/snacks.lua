@@ -24,8 +24,6 @@ return {
       pattern = "VeryLazy",
       callback = function()
         _G.dd = function(...)
-          -- TODO replace this with a better to get the caller and parse the nix store
-          -- since having the path is annoying
           Snacks.debug.inspect(...)
         end
         _G.bt = function()

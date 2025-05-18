@@ -55,6 +55,14 @@
       flake = false;
     };
 
+    mcp-hub-nvim = {
+      url = "github:/ravitemer/mcphub.nvim";
+    };
+
+    mcp-hub = {
+      url = "github:/ravitemer/mcp-hub";
+    };
+
     # see :help nixCats.flake.inputs
     # If you want your plugin to be loaded by the standard overlay,
     # i.e. if it wasnt on nixpkgs, but doesnt have an extra build step.
@@ -162,7 +170,9 @@
               emmet-language-server
             ];
             ai = with pkgs; [
+              (inputs.mcp-hub.packages.${pkgs.system}.default)
               nodejs
+              uv
             ];
             general = with pkgs; [
               fd
@@ -232,6 +242,7 @@
             ai = with pkgs.vimPlugins; [
               avante-nvim
               blink-cmp-copilot
+              (inputs.mcp-hub-nvim.packages.${pkgs.system}.default.overrideAttrs { pname = "mcphub.nvim"; })
               (inputs.nixpkgs-stable.legacyPackages.${pkgs.system}.vimPlugins.copilot-lua)
               nui-nvim
               plenary-nvim

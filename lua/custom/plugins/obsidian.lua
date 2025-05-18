@@ -46,15 +46,20 @@ return {
     require("obsidian").setup(opts)
 
     local actions = {
-      Search = "ObsidianSearch",
-      Today = "ObsidianToday",
-      Yesterday = "ObsidianYesterday",
-      Tomorrow = "ObsidianTomorrow",
-      New = "ObsidianNew",
+      { name = "New", action = "ObsidianNew" },
+      { name = "Today", action = "ObsidianToday" },
+      { name = "Search", action = "ObsidianSearch" },
+      { name = "Yesterday", action = "ObsidianYesterday" },
+      { name = "Tomorrow", action = "ObsidianTomorrow" },
     }
 
     vim.api.nvim_create_user_command("ObsidianMenu", function()
-      vim.ui.select(vim.tbl_keys(actions), { prompt = "Obsidian Action" }, function(selected)
+      vim.ui.select(actions, {
+        prompt = "Obsidian Action",
+        format_item = function(action)
+          return action.name
+        end,
+      }, function(selected)
         if not selected then
           return
         end

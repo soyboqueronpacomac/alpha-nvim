@@ -63,7 +63,7 @@ return {
         if not selected then
           return
         end
-        vim.cmd(actions[selected.action])
+        vim.cmd(selected.action)
       end)
     end, {})
   end,

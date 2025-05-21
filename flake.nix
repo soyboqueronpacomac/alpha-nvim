@@ -150,7 +150,6 @@
           # this includes LSPs
           lspsAndRuntimeDeps = {
             laravel = with pkgs; [
-              (import ./phpactor-laravel.nix { inherit pkgs inputs; })
               phpactor
               blade-formatter
             ];
@@ -179,13 +178,13 @@
               gh
               git
               imagemagick
+              (import ./php-debug-adapter.nix { inherit pkgs fetchurl stdenv; })
               jq
               lazygit
               lua-language-server
               nixd
               nixfmt-rfc-style
               stylua
-              (import ./php-debug-adapter.nix { inherit pkgs fetchurl stdenv; })
             ];
             symfony = with pkgs; [
               phpactor

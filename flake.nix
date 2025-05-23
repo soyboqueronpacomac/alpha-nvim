@@ -448,6 +448,13 @@
                     endpoint = "https://delorean-app.prod.apps.auto1.team/proxy-api/mistral/v1";
                     model = "mistral-small-latest";
                   };
+                  claude-4 = {
+                    __inherited_from = "claude";
+                    endpoint = "https://delorean-app.prod.apps.auto1.team/proxy-api/anthropic/";
+                    model = "claude-sonnet-4-20250514";
+                    temperature = 0;
+                    max_tokens = 4096;
+                  };
                 };
               };
             };

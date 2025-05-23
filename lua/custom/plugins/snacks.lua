@@ -59,7 +59,7 @@ return {
         map("<leader>fs", function() Snacks.picker.git_status() end, "Find Modified Files")
         map("<leader>:", function() Snacks.picker.command_history() end, "Find Command")
         map("<leader>fi", function() Snacks.picker.icons() end, "Find Icon")
-        map("<c-y>", function() Snacks.picker.icons() end, "Find Icon", {"i"})
+        map("<c-i>", function() Snacks.picker.icons() end, "Find Icon", {"i"})
 
         map("<F6>", function() Snacks.explorer() end, "Explorer", {"n", "i"})
 

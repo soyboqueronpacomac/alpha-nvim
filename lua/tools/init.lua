@@ -6,7 +6,7 @@ end
 if require("nixCatsUtils").enableForCategory("symfony") then
   vim.opt.path:append("tests/**/httpstubs/**/")
 
-  vim.keymap.set({ "n" }, "<leader>po", function()
+  vim.keymap.set({ "n" }, "<leader>fm", function()
     -- TODO: replace to read all from directory
     local schemas = vim
       .iter({

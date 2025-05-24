@@ -10,6 +10,7 @@ return {
       "nvim-dap-ui",
       "snacks.nvim",
       "lazy.nvim",
+      "promise-async",
     },
   },
 }

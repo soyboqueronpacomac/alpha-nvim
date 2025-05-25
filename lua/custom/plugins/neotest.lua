@@ -107,11 +107,6 @@ return {
 
     ---@diagnostic disable-next-line: missing-fields
     require("neotest").setup({
-      projects = {
-        ["~/code/plugins/laravel"] = require("neotest-plenary")({
-          min_init = "~/code/plugins/laravel.nvim/tests/init.lua",
-        }),
-      },
       adapters = adapters,
     })
   end,

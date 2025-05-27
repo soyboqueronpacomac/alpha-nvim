@@ -28,9 +28,12 @@ return {
     {
       "gf",
       function()
-        if require("laravel").app("gf").cursorOnResource() then
-          return "<cmd>Laravel gf<cr>"
-        else
+        local ok, res = pcall(function ()
+          if Laravel.app("gf").cursorOnResource() then
+            return "<cmd>Laravel gf<cr>"
+          end
+        end)
+        if not ok or not res then
           return "gf"
         end
       end,

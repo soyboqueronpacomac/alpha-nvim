@@ -424,6 +424,7 @@
               worktree = true;
               avanteOpts = {
                 auto_suggestions_provider = "mistral";
+                load_env_keys = true;
                 provider = "claude";
                 behaviour = {
                   enable_claude_text_editor_tool_mode = true;

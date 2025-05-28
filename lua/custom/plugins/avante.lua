@@ -45,4 +45,11 @@ return {
       "bash", -- Built-in terminal access
     },
   }, require("nixCatsUtils").getCatOrDefault("avanteOpts", {}) or {}),
+  init = function()
+    if require("nixCatsUtils").getCatOrDefault("avanteOpts.load_env_keys") then
+      local key = vim.trim(vim.system({ "rbw", "get", "delorean" }):wait().stdout)
+      vim.fn.setenv("OPENAI_API_KEY", key)
+      vim.fn.setenv("ANTHROPIC_API_KEY", key)
+    end
+  end,
 }

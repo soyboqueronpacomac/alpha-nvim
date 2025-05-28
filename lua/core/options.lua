@@ -15,6 +15,7 @@ vim.o.colorcolumn = "80"
 vim.o.termguicolors = true
 vim.o.showmode = false
 vim.o.conceallevel = 1
+vim.o.laststatus = 3
 
 -- Indentation
 vim.o.expandtab = true

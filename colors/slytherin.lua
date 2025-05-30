@@ -107,6 +107,7 @@ set(0, "@string.escape", { fg = sly.cyan })
 set(0, "@number", { fg = sly.cyan })
 set(0, "@boolean", { fg = sly.red })
 set(0, "@float", { fg = sly.cyan })
+set(0, "@enum", { fg = sly.magenta })
 
 set(0, "@function", { fg = sly.green_bright })
 set(0, "@function.builtin", { fg = sly.green })

@@ -33,7 +33,7 @@ return {
     "ObsidianMenu",
   },
   keys = {
-    { "<leader>ob", "<cmd> ObsidianMenu<cr>", desc = "Obsidian Menu" },
+    { "<leader>ob", "<cmd> Obsidian<cr>", desc = "Obsidian" },
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -41,30 +41,9 @@ return {
   opts = {
     workspaces = vaults,
     pickers = { name = "snacks.pick" },
-  },
-  config = function(_, opts)
-    require("obsidian").setup(opts)
-
-    local actions = {
-      { name = "New", action = "ObsidianNew" },
-      { name = "Today", action = "ObsidianToday" },
-      { name = "Search", action = "ObsidianSearch" },
-      { name = "Yesterday", action = "ObsidianYesterday" },
-      { name = "Tomorrow", action = "ObsidianTomorrow" },
+    completion = {
+      nvim_cmp = false,
+      blink = true,
     }
-
-    vim.api.nvim_create_user_command("ObsidianMenu", function()
-      vim.ui.select(actions, {
-        prompt = "Obsidian Action",
-        format_item = function(action)
-          return action.name
-        end,
-      }, function(selected)
-        if not selected then
-          return
-        end
-        vim.cmd(selected.action)
-      end)
-    end, {})
-  end,
+  },
 }

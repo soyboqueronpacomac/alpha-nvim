@@ -5,7 +5,7 @@ if require("nixCatsUtils").enableForCategory("laravel") then
   y_section = {
     {
       function()
-        local ok, laravel_version = pcall(function ()
+        local ok, laravel_version = pcall(function()
           return Laravel.app("status"):get("laravel")
         end)
         if ok then
@@ -86,6 +86,26 @@ return {
     theme = "auto",
     sections = {
       lualine_y = y_section,
+      lualine_b = {
+        "branch",
+        "diff",
+        "diagnostics",
+        {
+          function()
+            return require("pomodoro").getStatus()
+          end,
+          color = function()
+            if require("pomodoro").type == "running" then
+              return {fg = "#40E0D0"}
+            else
+              return {fg = "#FF6347"}
+            end
+          end,
+          cond = function()
+            return require("pomodoro").hasTask()
+          end
+        }
+      },
       lualine_c = {
         "filename",
         {

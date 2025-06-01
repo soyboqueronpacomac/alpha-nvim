@@ -41,7 +41,7 @@ if require("nixCatsUtils").enableForCategory("laravel") then
     {
       function()
         local ok, hostname = pcall(function()
-          return Laravel.app("dev_command"):hostname()
+          return Laravel.extensions.composer_dev.hostname()
         end)
         if ok then
           return hostname
@@ -51,7 +51,7 @@ if require("nixCatsUtils").enableForCategory("laravel") then
       icon = { " ", color = { fg = "#8FBC8F" } },
       cond = function()
         local ok, is_running = pcall(function()
-          return Laravel.app("dev_command"):isRunning()
+          return Laravel.extensions.composer_dev.isRunning()
         end)
         return ok and is_running
       end,
@@ -59,7 +59,7 @@ if require("nixCatsUtils").enableForCategory("laravel") then
     {
       function()
         local ok, unseen_records = pcall(function()
-          return #(Laravel.app("dump_server"):unseenRecords())
+          return #(Laravel.extensions.dump_server.unseenRecords())
         end)
 
         if ok then
@@ -70,7 +70,7 @@ if require("nixCatsUtils").enableForCategory("laravel") then
       icon = { "󰱧 ", color = { fg = "#FFCC66" } },
       cond = function()
         local ok, is_running = pcall(function()
-          return Laravel.app("dump_server"):isRunning()
+          return Laravel.extensions.dump_server.isRunning()
         end)
 
         return ok and is_running

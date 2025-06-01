@@ -11,9 +11,9 @@ local slytherin = {
   magenta    = "#8F5FAF",
   cyan       = "#5FAFAF",
   white      = "#FFFFFF",
-  comment    = "#5C6370",
+  comment    = "#7C8A9A",
   cursorline = "#2C323C",
-  selection  = "#3C6E52",
+  selection  = "#2A5D47",
 }
 
 return slytherin

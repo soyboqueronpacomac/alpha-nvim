@@ -272,6 +272,22 @@
         "type": "github"
       }
     },
+    "plugins-pomodoro": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1748635503,
+        "narHash": "sha256-S5ZzgIJLHlTzevtX+g63wO8Fna65OLt3lt1gISSxtiQ=",
+        "owner": "adalessa",
+        "repo": "pomodoro",
+        "rev": "cfd82a4ab02f90f4a0fba1df3cbd47255732a6f2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "adalessa",
+        "repo": "pomodoro",
+        "type": "github"
+      }
+    },
     "plugins-snacks.nvim": {
       "flake": false,
       "locked": {
@@ -318,6 +334,7 @@
         "plugins-menu": "plugins-menu",
         "plugins-neotest-pest": "plugins-neotest-pest",
         "plugins-php-lsp-utils": "plugins-php-lsp-utils",
+        "plugins-pomodoro": "plugins-pomodoro",
         "plugins-snacks.nvim": "plugins-snacks.nvim",
         "plugins-volt": "plugins-volt"
       }

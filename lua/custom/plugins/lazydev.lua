@@ -8,6 +8,8 @@ return {
       { path = "${3rd}/luv/library", words = { "vim%.uv" } },
       { path = "${3rd}/love2d/library", words = { "love" } },
       { path = "plenary.nvim", words = { "describe" } },
+      { path = "laravel.nvim", words = { "Laravel" } },
+      { path = "nvim-nio", words = { "nio" } },
       "snacks.nvim",
     },
   },

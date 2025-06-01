@@ -14,28 +14,78 @@ return {
   },
   cmd = { "Laravel" },
   keys = {
-    { "<leader>ll", "<cmd>Laravel<cr>" },
-    { "<c-g>", "<cmd>Laravel view_finder<cr>" },
-    { "<leader>la", "<cmd>Laravel art<cr>" },
-    { "<leader>lt", "<cmd>Laravel actions<cr>" },
-    { "<leader>lr", "<cmd>Laravel routes<cr>" },
-    { "<leader>lh", "<cmd>Laravel art docs<cr>" },
-    { "<leader>lm", "<cmd>Laravel make<cr>" },
-    { "<leader>ln", "<cmd>Laravel related<cr>" },
-    { "<leader>lc", "<cmd>Laravel commands<cr>" },
-    { "<leader>lo", "<cmd>Laravel resources<cr>" },
-    { "<leader>lp", "<cmd>Laravel panel<cr>" },
+    {
+      "<leader>ll",
+      function()
+        Laravel.pickers.laravel()
+      end,
+    },
+    {
+      "<c-g>",
+      function()
+        Laravel.commands.run("view:finder")
+      end,
+    },
+    {
+      "<leader>la",
+      function()
+        Laravel.pickers.artisan()
+      end,
+    },
+    {
+      "<leader>lt",
+      function()
+        Laravel.commands.run("actions")
+      end,
+    },
+    {
+      "<leader>lr",
+      function()
+        Laravel.pickers.routes()
+      end,
+    },
+    {
+      "<leader>lh",
+      function()
+        Laravel.run("artisan docs")
+      end,
+    },
+    {
+      "<leader>lm",
+      function()
+        Laravel.pickers.make()
+      end,
+    },
+    {
+      "<leader>lc",
+      function()
+        Laravel.pickers.commands()
+      end,
+    },
+    {
+      "<leader>lo",
+      function()
+        Laravel.pickers.resources()
+      end,
+    },
+    {
+      "<leader>lp",
+      function()
+        Laravel.commands.run("command_center")
+      end,
+    },
     {
       "gf",
       function()
-        local ok, res = pcall(function ()
+        local ok, res = pcall(function()
           if Laravel.app("gf").cursorOnResource() then
-            return "<cmd>Laravel gf<cr>"
+            return "<cmd>lua Laravel.commands.run('gf')<cr>"
           end
         end)
         if not ok or not res then
           return "gf"
         end
+        return res
       end,
       expr = true,
       noremap = true,

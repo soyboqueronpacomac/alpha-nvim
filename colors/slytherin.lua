@@ -136,6 +136,8 @@ set(0, "@tag", { fg = sly.blue })
 set(0, "@tag.attribute", { fg = sly.green })
 set(0, "@tag.delimiter", { fg = sly.fg })
 
+set(0, "@tag.blade", { fg = sly.magenta })
+
 set(0, "@namespace", { fg = sly.cyan })
 set(0, "@symbol", { fg = sly.cyan })
 

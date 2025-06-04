@@ -70,14 +70,17 @@ return { -- Highlight, edit, and navigate code
     }
     vim.filetype.add({
       pattern = {
-        [".*%.blade%.php"] = function(path, bufnr, ext)
-          local firstLine = vim.api.nvim_buf_get_lines(bufnr, 0, 1, false)[1] or ""
-          if vim.startswith(firstLine, "<?php") then
-            return "php"
-          end
+        [".*%.blade%.php"] = {
+          function(path, bufnr, ext)
+            local firstLine = vim.api.nvim_buf_get_lines(bufnr, 0, 1, false)[1] or ""
+            if vim.startswith(firstLine, "<?php") then
+              return "php"
+            end
 
-          return "blade"
-        end,
+            return "blade"
+          end,
+          { priority = math.huge, name = "blade" },
+        },
       },
     })
   end,

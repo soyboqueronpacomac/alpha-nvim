@@ -34,6 +34,8 @@ return {
 
     disabled_tools = {
       "list_files", -- Built-in file operations
+      "python",
+      "web_search",
       "search_files",
       "read_file",
       "create_file",

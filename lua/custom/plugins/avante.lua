@@ -12,7 +12,7 @@ return {
   },
   opts = vim.tbl_extend("force", {
     provider = "copilot",
-    file_selector = {
+    selector = {
       provider = "snacks",
     },
     -- behaviour = {

@@ -10,7 +10,14 @@ end
 
 if require("nixCatsUtils").enableForCategory("laravel") then
   formatters.blade = { "blade-formatter" }
-  formatters.php = { "pint" }
+  formatters.php = function(bufnr)
+    -- check if the name contains views use blade formatter
+    local fname = vim.uri_from_bufnr(bufnr)
+    if fname:match("views") then
+      return { "blade-formatter" }
+    end
+    return { "pint" }
+  end
 end
 
 return {

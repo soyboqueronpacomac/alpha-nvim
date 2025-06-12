@@ -157,6 +157,7 @@
             laravel = with pkgs; [
               phpactor
               blade-formatter
+              sqlite
             ];
             go = with pkgs; [
               go

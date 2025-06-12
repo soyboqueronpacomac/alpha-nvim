@@ -10,7 +10,8 @@ return {
     "tpope/vim-dotenv",
     "MunifTanjim/nui.nvim",
     "nvim-lua/plenary.nvim",
-    "kevinhwang91/promise-async",
+    "nvim-neotest/nvim-nio",
+    "ravitemer/mcphub.nvim",
   },
   cmd = { "Laravel" },
   keys = {

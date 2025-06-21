@@ -33,7 +33,6 @@ return {
     end,
 
     disabled_tools = {
-      "list_files", -- Built-in file operations
       "python",
       "web_search",
       "search_files",
@@ -44,7 +43,6 @@ return {
       "create_dir",
       "rename_dir",
       "delete_dir",
-      "bash", -- Built-in terminal access
     },
   }, require("nixCatsUtils").getCatOrDefault("avanteOpts", {}) or {}),
   init = function()

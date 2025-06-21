@@ -163,6 +163,8 @@
               go
               gopls
               gotools
+              golangci-lint
+              golangci-lint-langserver
             ];
             python = with pkgs; [
               python312

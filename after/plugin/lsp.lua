@@ -62,6 +62,7 @@ vim.lsp.enable("tailwind", require("nixCatsUtils").enableForCategory("javascript
 vim.lsp.enable("emmet", require("nixCatsUtils").enableForCategory("javascript"))
 vim.lsp.enable("pylsp", require("nixCatsUtils").enableForCategory("python"))
 vim.lsp.enable("gopls", require("nixCatsUtils").enableForCategory("go"))
+vim.lsp.enable("golangci_lint", require("nixCatsUtils").enableForCategory("go"))
 vim.lsp.enable("nixd", require("nixCatsUtils").isNixCats)
 vim.lsp.enable("rnix", not require("nixCatsUtils").isNixCats)
 vim.lsp.enable("nil_ls", not require("nixCatsUtils").isNixCats)

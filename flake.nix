@@ -166,6 +166,13 @@
               golangci-lint
               golangci-lint-langserver
             ];
+            rust = with pkgs; [
+              rustc
+              rustfmt
+              cargo
+              clippy
+              rust-analyzer
+            ];
             python = with pkgs; [
               python312
               python312Packages.python-lsp-server
@@ -360,6 +367,7 @@
               general = true;
               gitPlugins = true;
               go = true;
+              rust = true;
               laravel = true;
               python = true;
               javascript = true;

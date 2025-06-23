@@ -447,31 +447,37 @@
                   enable_claude_text_editor_tool_mode = true;
                   auto_apply_diff_after_generation = true;
                 };
-                claude = {
-                  endpoint = "https://delorean-app.prod.apps.auto1.team/proxy-api/anthropic/";
-                  model = "claude-3-7-sonnet-20250219";
-                  temperature = 0;
-                  max_tokens = 4096;
-                };
-                openai = {
-                  endpoint = "https://delorean-app.prod.apps.auto1.team/proxy-api/openai/v1";
-                  model = "gpt-4o-mini";
-                  timeout = 30000;
-                  temperature = 0;
-                  max_tokens = 4096;
-                };
-                vendors = {
+                providers = {
                   mistral = {
                     __inherited_from = "openai";
                     endpoint = "https://delorean-app.prod.apps.auto1.team/proxy-api/mistral/v1";
                     model = "mistral-small-latest";
                   };
+                  claude = {
+                    endpoint = "https://delorean-app.prod.apps.auto1.team/proxy-api/anthropic/";
+                    model = "claude-3-7-sonnet-20250219";
+                    extra_request_body = {
+                      temperature = 0;
+                      max_tokens = 4096;
+                    };
+                  };
                   claude-4 = {
                     __inherited_from = "claude";
                     endpoint = "https://delorean-app.prod.apps.auto1.team/proxy-api/anthropic/";
                     model = "claude-sonnet-4-20250514";
-                    temperature = 0;
-                    max_tokens = 4096;
+                    extra_request_body = {
+                      temperature = 0;
+                      max_tokens = 4096;
+                    };
+                  };
+                  openai = {
+                    endpoint = "https://delorean-app.prod.apps.auto1.team/proxy-api/openai/v1";
+                    model = "gpt-4o-mini";
+                    timeout = 30000;
+                    extra_request_body = {
+                      temperature = 0;
+                      max_tokens = 4096;
+                    };
                   };
                 };
               };

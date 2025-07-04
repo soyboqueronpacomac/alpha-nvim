@@ -51,6 +51,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+vim.api.nvim_create_user_command("StopLspClients", function()
+  vim.lsp.stop_client(vim.lsp.get_clients())
+end, {})
+
 vim.lsp.config("*", {
   capabilities = require("blink.cmp").get_lsp_capabilities(),
 })

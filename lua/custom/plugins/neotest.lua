@@ -99,7 +99,12 @@ return {
     end
 
     if require("nixCatsUtils").enableForCategory("go") then
-      table.insert(adapters, require("neotest-golang"))
+      table.insert(
+        adapters,
+        require("neotest-golang")({
+          go_test_args = { "-v", "-count=1" },
+        })
+      )
     end
 
     if require("nixCatsUtils").enableForCategory("symfony") then

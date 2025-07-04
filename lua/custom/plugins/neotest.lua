@@ -14,6 +14,10 @@ if require("nixCatsUtils").enableForCategory("symfony") then
   table.insert(dependencies, "olimorris/neotest-phpunit")
 end
 
+if require("nixCatsUtils").enableForCategory("go") then
+  table.insert(dependencies, "fredrikaverpil/neotest-golang")
+end
+
 return {
   "nvim-neotest/neotest",
   dependencies = dependencies,
@@ -92,6 +96,10 @@ return {
 
     if require("nixCatsUtils").enableForCategory("behat") then
       table.insert(adapters, require("neotest-behat"))
+    end
+
+    if require("nixCatsUtils").enableForCategory("go") then
+      table.insert(adapters, require("neotest-golang"))
     end
 
     if require("nixCatsUtils").enableForCategory("symfony") then

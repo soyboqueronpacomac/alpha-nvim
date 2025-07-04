@@ -249,6 +249,10 @@
               which-key-nvim
             ];
 
+            go = with pkgs.vimPlugins; [
+              neotest-golang
+            ];
+
             fileManager = with pkgs.vimPlugins; [
               oil-nvim
               mini-icons

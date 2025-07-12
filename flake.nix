@@ -15,11 +15,6 @@
       flake = false;
     };
 
-    phpactor-laravel = {
-      url = "github:adalessa/phpactor/feature/laravel-extension";
-      flake = false;
-    };
-
     "plugins-git-worktree.nvim" = {
       url = "github:polarmutex/git-worktree.nvim";
       flake = false;
@@ -157,10 +152,9 @@
             laravel = with pkgs; [
               phpactor
               blade-formatter
-              sqlite
+              mago
             ];
             go = with pkgs; [
-              go
               gopls
               gotools
               golangci-lint
@@ -269,6 +263,7 @@
 
             laravel = with pkgs.vimPlugins; [
               pkgs.neovimPlugins.laravel-nvim
+              neotest-phpunit
               plenary-nvim
               nui-nvim
               vim-dotenv

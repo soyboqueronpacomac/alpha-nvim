@@ -16,6 +16,12 @@ if require("nixCatsUtils").enableForCategory("laravel") then
     if fname:match("views") then
       return { "blade-formatter" }
     end
+
+    -- check if there is a mago.toml file in the root directory
+    if (vim.fn.filereadable(vim.fn.getcwd() .. "/mago.toml") == 1) then
+      return { "mago_format" }
+    end
+
     return { "pint" }
   end
 end

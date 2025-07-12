@@ -8,6 +8,7 @@ local dependencies = {
 
 if require("nixCatsUtils").enableForCategory("laravel") then
   table.insert(dependencies, "V13Axel/neotest-pest")
+  table.insert(dependencies, "olimorris/neotest-phpunit")
 end
 
 if require("nixCatsUtils").enableForCategory("symfony") then
